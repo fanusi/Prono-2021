@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE13B87226356F8600606478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87126356F8600606478 /* AppDelegate.swift */; };
+		AE13B87426356F8600606478 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87326356F8600606478 /* SceneDelegate.swift */; };
+		AE13B87626356F8600606478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87526356F8600606478 /* ViewController.swift */; };
+		AE13B87926356F8600606478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13B87726356F8600606478 /* Main.storyboard */; };
+		AE13B87C26356F8600606478 /* EK_Prono_21.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87A26356F8600606478 /* EK_Prono_21.xcdatamodeld */; };
+		AE13B87E26356F8700606478 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE13B87D26356F8700606478 /* Assets.xcassets */; };
+		AE13B88126356F8700606478 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13B87F26356F8700606478 /* LaunchScreen.storyboard */; };
+		AE13B88C26356F8700606478 /* EK_Prono_21Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B88B26356F8700606478 /* EK_Prono_21Tests.swift */; };
+		AE13B89726356F8700606478 /* EK_Prono_21UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B89626356F8700606478 /* EK_Prono_21UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE13B88826356F8700606478 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE13B86626356F8600606478 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE13B86D26356F8600606478;
+			remoteInfo = "EK Prono 21";
+		};
+		AE13B89326356F8700606478 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE13B86626356F8600606478 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE13B86D26356F8600606478;
+			remoteInfo = "EK Prono 21";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE13B86E26356F8600606478 /* EK Prono 21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EK Prono 21.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE13B87126356F8600606478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE13B87326356F8600606478 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AE13B87526356F8600606478 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE13B87826356F8600606478 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE13B87B26356F8600606478 /* EK_Prono_21.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EK_Prono_21.xcdatamodel; sourceTree = "<group>"; };
+		AE13B87D26356F8700606478 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE13B88026356F8700606478 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AE13B88226356F8700606478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE13B88726356F8700606478 /* EK Prono 21Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EK Prono 21Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE13B88B26356F8700606478 /* EK_Prono_21Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EK_Prono_21Tests.swift; sourceTree = "<group>"; };
+		AE13B88D26356F8700606478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE13B89226356F8700606478 /* EK Prono 21UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EK Prono 21UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE13B89626356F8700606478 /* EK_Prono_21UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EK_Prono_21UITests.swift; sourceTree = "<group>"; };
+		AE13B89826356F8700606478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE13B86B26356F8600606478 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B88426356F8700606478 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B88F26356F8700606478 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE13B86526356F8600606478 = {
+			isa = PBXGroup;
+			children = (
+				AE13B87026356F8600606478 /* EK Prono 21 */,
+				AE13B88A26356F8700606478 /* EK Prono 21Tests */,
+				AE13B89526356F8700606478 /* EK Prono 21UITests */,
+				AE13B86F26356F8600606478 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE13B86F26356F8600606478 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE13B86E26356F8600606478 /* EK Prono 21.app */,
+				AE13B88726356F8700606478 /* EK Prono 21Tests.xctest */,
+				AE13B89226356F8700606478 /* EK Prono 21UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE13B87026356F8600606478 /* EK Prono 21 */ = {
+			isa = PBXGroup;
+			children = (
+				AE13B87126356F8600606478 /* AppDelegate.swift */,
+				AE13B87326356F8600606478 /* SceneDelegate.swift */,
+				AE13B87526356F8600606478 /* ViewController.swift */,
+				AE13B87726356F8600606478 /* Main.storyboard */,
+				AE13B87D26356F8700606478 /* Assets.xcassets */,
+				AE13B87F26356F8700606478 /* LaunchScreen.storyboard */,
+				AE13B88226356F8700606478 /* Info.plist */,
+				AE13B87A26356F8600606478 /* EK_Prono_21.xcdatamodeld */,
+			);
+			path = "EK Prono 21";
+			sourceTree = "<group>";
+		};
+		AE13B88A26356F8700606478 /* EK Prono 21Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AE13B88B26356F8700606478 /* EK_Prono_21Tests.swift */,
+				AE13B88D26356F8700606478 /* Info.plist */,
+			);
+			path = "EK Prono 21Tests";
+			sourceTree = "<group>";
+		};
+		AE13B89526356F8700606478 /* EK Prono 21UITests */ = {
+			isa = PBXGroup;
+			children = (
+				AE13B89626356F8700606478 /* EK_Prono_21UITests.swift */,
+				AE13B89826356F8700606478 /* Info.plist */,
+			);
+			path = "EK Prono 21UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE13B86D26356F8600606478 /* EK Prono 21 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE13B89B26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21" */;
+			buildPhases = (
+				AE13B86A26356F8600606478 /* Sources */,
+				AE13B86B26356F8600606478 /* Frameworks */,
+				AE13B86C26356F8600606478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EK Prono 21";
+			productName = "EK Prono 21";
+			productReference = AE13B86E26356F8600606478 /* EK Prono 21.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE13B88626356F8700606478 /* EK Prono 21Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE13B89E26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21Tests" */;
+			buildPhases = (
+				AE13B88326356F8700606478 /* Sources */,
+				AE13B88426356F8700606478 /* Frameworks */,
+				AE13B88526356F8700606478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE13B88926356F8700606478 /* PBXTargetDependency */,
+			);
+			name = "EK Prono 21Tests";
+			productName = "EK Prono 21Tests";
+			productReference = AE13B88726356F8700606478 /* EK Prono 21Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AE13B89126356F8700606478 /* EK Prono 21UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE13B8A126356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21UITests" */;
+			buildPhases = (
+				AE13B88E26356F8700606478 /* Sources */,
+				AE13B88F26356F8700606478 /* Frameworks */,
+				AE13B89026356F8700606478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE13B89426356F8700606478 /* PBXTargetDependency */,
+			);
+			name = "EK Prono 21UITests";
+			productName = "EK Prono 21UITests";
+			productReference = AE13B89226356F8700606478 /* EK Prono 21UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE13B86626356F8600606478 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					AE13B86D26356F8600606478 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					AE13B88626356F8700606478 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = AE13B86D26356F8600606478;
+					};
+					AE13B89126356F8700606478 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = AE13B86D26356F8600606478;
+					};
+				};
+			};
+			buildConfigurationList = AE13B86926356F8600606478 /* Build configuration list for PBXProject "EK Prono 21" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE13B86526356F8600606478;
+			productRefGroup = AE13B86F26356F8600606478 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE13B86D26356F8600606478 /* EK Prono 21 */,
+				AE13B88626356F8700606478 /* EK Prono 21Tests */,
+				AE13B89126356F8700606478 /* EK Prono 21UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE13B86C26356F8600606478 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13B88126356F8700606478 /* LaunchScreen.storyboard in Resources */,
+				AE13B87E26356F8700606478 /* Assets.xcassets in Resources */,
+				AE13B87926356F8600606478 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B88526356F8700606478 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B89026356F8700606478 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE13B86A26356F8600606478 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13B87626356F8600606478 /* ViewController.swift in Sources */,
+				AE13B87226356F8600606478 /* AppDelegate.swift in Sources */,
+				AE13B87426356F8600606478 /* SceneDelegate.swift in Sources */,
+				AE13B87C26356F8600606478 /* EK_Prono_21.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B88326356F8700606478 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13B88C26356F8700606478 /* EK_Prono_21Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE13B88E26356F8700606478 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE13B89726356F8700606478 /* EK_Prono_21UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE13B88926356F8700606478 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE13B86D26356F8600606478 /* EK Prono 21 */;
+			targetProxy = AE13B88826356F8700606478 /* PBXContainerItemProxy */;
+		};
+		AE13B89426356F8700606478 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE13B86D26356F8600606478 /* EK Prono 21 */;
+			targetProxy = AE13B89326356F8700606478 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AE13B87726356F8600606478 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE13B87826356F8600606478 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AE13B87F26356F8700606478 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE13B88026356F8700606478 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE13B89926356F8700606478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE13B89A26356F8700606478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE13B89C26356F8700606478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE13B89D26356F8700606478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AE13B89F26356F8700606478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EK Prono 21.app/EK Prono 21";
+			};
+			name = Debug;
+		};
+		AE13B8A026356F8700606478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EK Prono 21.app/EK Prono 21";
+			};
+			name = Release;
+		};
+		AE13B8A226356F8700606478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EK Prono 21";
+			};
+			name = Debug;
+		};
+		AE13B8A326356F8700606478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SC862SLTU9;
+				INFOPLIST_FILE = "EK Prono 21UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.EK-Prono-21UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "EK Prono 21";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE13B86926356F8600606478 /* Build configuration list for PBXProject "EK Prono 21" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13B89926356F8700606478 /* Debug */,
+				AE13B89A26356F8700606478 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE13B89B26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13B89C26356F8700606478 /* Debug */,
+				AE13B89D26356F8700606478 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE13B89E26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13B89F26356F8700606478 /* Debug */,
+				AE13B8A026356F8700606478 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE13B8A126356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE13B8A226356F8700606478 /* Debug */,
+				AE13B8A326356F8700606478 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AE13B87A26356F8600606478 /* EK_Prono_21.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AE13B87B26356F8600606478 /* EK_Prono_21.xcdatamodel */,
+			);
+			currentVersion = AE13B87B26356F8600606478 /* EK_Prono_21.xcdatamodel */;
+			path = EK_Prono_21.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AE13B86626356F8600606478 /* Project object */;
+}
