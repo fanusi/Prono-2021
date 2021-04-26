@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A046977F2B8CA6B2196BB8DF /* Pods_EK_Prono_21Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F11AA2F8336C4ABDE0B7B16 /* Pods_EK_Prono_21Tests.framework */; };
 		AE13B87226356F8600606478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87126356F8600606478 /* AppDelegate.swift */; };
 		AE13B87426356F8600606478 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87326356F8600606478 /* SceneDelegate.swift */; };
 		AE13B87626356F8600606478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B87526356F8600606478 /* ViewController.swift */; };
@@ -16,6 +17,17 @@
 		AE13B88126356F8700606478 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE13B87F26356F8700606478 /* LaunchScreen.storyboard */; };
 		AE13B88C26356F8700606478 /* EK_Prono_21Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B88B26356F8700606478 /* EK_Prono_21Tests.swift */; };
 		AE13B89726356F8700606478 /* EK_Prono_21UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B89626356F8700606478 /* EK_Prono_21UITests.swift */; };
+		AE13B8B42635722900606478 /* WK 18.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE13B8B32635722900606478 /* WK 18.xlsx */; };
+		AE13B8B92635783700606478 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8B82635783700606478 /* ViewController2.swift */; };
+		AE13B8C126357A0D00606478 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8C026357A0D00606478 /* ViewController3.swift */; };
+		AE13B8C92635820B00606478 /* EuroJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8C82635820B00606478 /* EuroJSON.swift */; };
+		AE13B8CE2635822C00606478 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8CD2635822C00606478 /* Scores.swift */; };
+		AE13B8D32635824A00606478 /* Livegames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8D22635824A00606478 /* Livegames.swift */; };
+		AE13B8DF263583C200606478 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8DE263583C200606478 /* UILabel+.swift */; };
+		AE13B8E4263584CF00606478 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8E3263584CF00606478 /* UIScrollView+.swift */; };
+		AE13B8E9263584E800606478 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8E8263584E800606478 /* UIView+.swift */; };
+		C6706A4376466DC6784E340B /* Pods_EK_Prono_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB92D518562E12607903877 /* Pods_EK_Prono_21.framework */; };
+		FCE48E1C8826BE0216B76F4F /* Pods_EK_Prono_21_EK_Prono_21UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878F92E6A42073064646BE6D /* Pods_EK_Prono_21_EK_Prono_21UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23A0588DB343E516F75FBDF0 /* Pods-EK Prono 21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21.release.xcconfig"; path = "Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21.release.xcconfig"; sourceTree = "<group>"; };
+		333CAEF1551D50CF1D5F4079 /* Pods-EK Prono 21-EK Prono 21UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21-EK Prono 21UITests.release.xcconfig"; path = "Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests.release.xcconfig"; sourceTree = "<group>"; };
+		3BB92D518562E12607903877 /* Pods_EK_Prono_21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EK_Prono_21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		878F92E6A42073064646BE6D /* Pods_EK_Prono_21_EK_Prono_21UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EK_Prono_21_EK_Prono_21UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F11AA2F8336C4ABDE0B7B16 /* Pods_EK_Prono_21Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EK_Prono_21Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE13B86E26356F8600606478 /* EK Prono 21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EK Prono 21.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE13B87126356F8600606478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE13B87326356F8600606478 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +68,19 @@
 		AE13B89226356F8700606478 /* EK Prono 21UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EK Prono 21UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE13B89626356F8700606478 /* EK_Prono_21UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EK_Prono_21UITests.swift; sourceTree = "<group>"; };
 		AE13B89826356F8700606478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE13B8B32635722900606478 /* WK 18.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WK 18.xlsx"; path = "Support/WK 18.xlsx"; sourceTree = SOURCE_ROOT; };
+		AE13B8B82635783700606478 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		AE13B8C026357A0D00606478 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		AE13B8C82635820B00606478 /* EuroJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroJSON.swift; sourceTree = "<group>"; };
+		AE13B8CD2635822C00606478 /* Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
+		AE13B8D22635824A00606478 /* Livegames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livegames.swift; sourceTree = "<group>"; };
+		AE13B8DE263583C200606478 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		AE13B8E3263584CF00606478 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		AE13B8E8263584E800606478 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		B6A73D6A54D2C5E09C1C9DE3 /* Pods-EK Prono 21Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21Tests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21Tests/Pods-EK Prono 21Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA72AFFFCB3FDAC3CF1BF085 /* Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6F2294827498A0B6B9E5425 /* Pods-EK Prono 21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21.debug.xcconfig"; sourceTree = "<group>"; };
+		FB86A9316D74DD4A86EFE178 /* Pods-EK Prono 21Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21Tests.release.xcconfig"; path = "Target Support Files/Pods-EK Prono 21Tests/Pods-EK Prono 21Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6706A4376466DC6784E340B /* Pods_EK_Prono_21.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A046977F2B8CA6B2196BB8DF /* Pods_EK_Prono_21Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +104,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE48E1C8826BE0216B76F4F /* Pods_EK_Prono_21_EK_Prono_21UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		647324D86D82FF7E6739673E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BB92D518562E12607903877 /* Pods_EK_Prono_21.framework */,
+				878F92E6A42073064646BE6D /* Pods_EK_Prono_21_EK_Prono_21UITests.framework */,
+				8F11AA2F8336C4ABDE0B7B16 /* Pods_EK_Prono_21Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE13B86526356F8600606478 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +128,8 @@
 				AE13B88A26356F8700606478 /* EK Prono 21Tests */,
 				AE13B89526356F8700606478 /* EK Prono 21UITests */,
 				AE13B86F26356F8600606478 /* Products */,
+				DA17B830F2408D635FC04D6E /* Pods */,
+				647324D86D82FF7E6739673E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +146,21 @@
 		AE13B87026356F8600606478 /* EK Prono 21 */ = {
 			isa = PBXGroup;
 			children = (
+				AE13B8DD263583A000606478 /* Support */,
+				AE13B8B32635722900606478 /* WK 18.xlsx */,
 				AE13B87126356F8600606478 /* AppDelegate.swift */,
 				AE13B87326356F8600606478 /* SceneDelegate.swift */,
 				AE13B87526356F8600606478 /* ViewController.swift */,
+				AE13B8B82635783700606478 /* ViewController2.swift */,
+				AE13B8C026357A0D00606478 /* ViewController3.swift */,
 				AE13B87726356F8600606478 /* Main.storyboard */,
 				AE13B87D26356F8700606478 /* Assets.xcassets */,
 				AE13B87F26356F8700606478 /* LaunchScreen.storyboard */,
 				AE13B88226356F8700606478 /* Info.plist */,
 				AE13B87A26356F8600606478 /* EK_Prono_21.xcdatamodeld */,
+				AE13B8C82635820B00606478 /* EuroJSON.swift */,
+				AE13B8CD2635822C00606478 /* Scores.swift */,
+				AE13B8D22635824A00606478 /* Livegames.swift */,
 			);
 			path = "EK Prono 21";
 			sourceTree = "<group>";
@@ -131,6 +183,29 @@
 			path = "EK Prono 21UITests";
 			sourceTree = "<group>";
 		};
+		AE13B8DD263583A000606478 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AE13B8DE263583C200606478 /* UILabel+.swift */,
+				AE13B8E3263584CF00606478 /* UIScrollView+.swift */,
+				AE13B8E8263584E800606478 /* UIView+.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		DA17B830F2408D635FC04D6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6F2294827498A0B6B9E5425 /* Pods-EK Prono 21.debug.xcconfig */,
+				23A0588DB343E516F75FBDF0 /* Pods-EK Prono 21.release.xcconfig */,
+				CA72AFFFCB3FDAC3CF1BF085 /* Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig */,
+				333CAEF1551D50CF1D5F4079 /* Pods-EK Prono 21-EK Prono 21UITests.release.xcconfig */,
+				B6A73D6A54D2C5E09C1C9DE3 /* Pods-EK Prono 21Tests.debug.xcconfig */,
+				FB86A9316D74DD4A86EFE178 /* Pods-EK Prono 21Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE13B89B26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21" */;
 			buildPhases = (
+				41AE22C94B6562D85821B6B7 /* [CP] Check Pods Manifest.lock */,
 				AE13B86A26356F8600606478 /* Sources */,
 				AE13B86B26356F8600606478 /* Frameworks */,
 				AE13B86C26356F8600606478 /* Resources */,
+				9770FAFD34D421DEC7E7F550 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +232,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE13B89E26356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21Tests" */;
 			buildPhases = (
+				E90EC81ACC6387316113A289 /* [CP] Check Pods Manifest.lock */,
 				AE13B88326356F8700606478 /* Sources */,
 				AE13B88426356F8700606478 /* Frameworks */,
 				AE13B88526356F8700606478 /* Resources */,
@@ -173,9 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE13B8A126356F8700606478 /* Build configuration list for PBXNativeTarget "EK Prono 21UITests" */;
 			buildPhases = (
+				6DBBADF96E6A57F006020622 /* [CP] Check Pods Manifest.lock */,
 				AE13B88E26356F8700606478 /* Sources */,
 				AE13B88F26356F8700606478 /* Frameworks */,
 				AE13B89026356F8700606478 /* Resources */,
+				76C16FDDB202C98625961880 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +316,7 @@
 			files = (
 				AE13B88126356F8700606478 /* LaunchScreen.storyboard in Resources */,
 				AE13B87E26356F8700606478 /* Assets.xcassets in Resources */,
+				AE13B8B42635722900606478 /* WK 18.xlsx in Resources */,
 				AE13B87926356F8600606478 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,14 +337,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41AE22C94B6562D85821B6B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EK Prono 21-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DBBADF96E6A57F006020622 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EK Prono 21-EK Prono 21UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76C16FDDB202C98625961880 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9770FAFD34D421DEC7E7F550 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E90EC81ACC6387316113A289 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EK Prono 21Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AE13B86A26356F8600606478 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE13B8E9263584E800606478 /* UIView+.swift in Sources */,
+				AE13B8D32635824A00606478 /* Livegames.swift in Sources */,
+				AE13B8B92635783700606478 /* ViewController2.swift in Sources */,
+				AE13B8DF263583C200606478 /* UILabel+.swift in Sources */,
 				AE13B87626356F8600606478 /* ViewController.swift in Sources */,
+				AE13B8E4263584CF00606478 /* UIScrollView+.swift in Sources */,
+				AE13B8C92635820B00606478 /* EuroJSON.swift in Sources */,
+				AE13B8C126357A0D00606478 /* ViewController3.swift in Sources */,
 				AE13B87226356F8600606478 /* AppDelegate.swift in Sources */,
 				AE13B87426356F8600606478 /* SceneDelegate.swift in Sources */,
+				AE13B8CE2635822C00606478 /* Scores.swift in Sources */,
 				AE13B87C26356F8600606478 /* EK_Prono_21.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +629,7 @@
 		};
 		AE13B89C26356F8700606478 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6F2294827498A0B6B9E5425 /* Pods-EK Prono 21.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +649,7 @@
 		};
 		AE13B89D26356F8700606478 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A0588DB343E516F75FBDF0 /* Pods-EK Prono 21.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +669,7 @@
 		};
 		AE13B89F26356F8700606478 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A73D6A54D2C5E09C1C9DE3 /* Pods-EK Prono 21Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +692,7 @@
 		};
 		AE13B8A026356F8700606478 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB86A9316D74DD4A86EFE178 /* Pods-EK Prono 21Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +715,7 @@
 		};
 		AE13B8A226356F8700606478 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA72AFFFCB3FDAC3CF1BF085 /* Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +736,7 @@
 		};
 		AE13B8A326356F8700606478 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 333CAEF1551D50CF1D5F4079 /* Pods-EK Prono 21-EK Prono 21UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

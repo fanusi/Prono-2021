@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pronostiek" representedClassName="Pronostiek" syncable="YES" codeGenerationType="class">
+        <attribute name="away_Goals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="away_Team" optional="YES" attributeType="String"/>
+        <attribute name="fixture_ID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fulltime" optional="YES" attributeType="String"/>
+        <attribute name="home_Goals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="home_Team" optional="YES" attributeType="String"/>
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="user" optional="YES" attributeType="String"/>
+        <relationship name="statistiek" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Statistiek" inverseName="pronostiek" inverseEntity="Statistiek"/>
+    </entity>
+    <entity name="Statistiek" representedClassName="Statistiek" syncable="YES" codeGenerationType="class">
+        <attribute name="punten" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="user" optional="YES" attributeType="String"/>
+        <relationship name="pronostiek" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pronostiek" inverseName="statistiek" inverseEntity="Pronostiek"/>
+    </entity>
+    <elements>
+        <element name="Pronostiek" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Statistiek" positionX="-54" positionY="63" width="128" height="88"/>
+    </elements>
 </model>
