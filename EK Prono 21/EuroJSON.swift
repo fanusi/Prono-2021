@@ -38,13 +38,25 @@ struct fixture: Codable {
            let values = try decoder.container(keyedBy: CodingKeys.self)
            
            // 2 - Normal Decoding
-           fixture_id = try values.decode(Int.self, forKey: .fixture_id)
            awayTeam = try values.decode(AT.self, forKey: .awayTeam)
            homeTeam = try values.decode(HT.self, forKey: .homeTeam)
            score =  try values.decode(SC.self, forKey: .score)
-           status =  try values.decode(String.self, forKey: .status)
            
            // 3 - Conditional Decoding
+        
+            if var fixture_id =  try values.decodeIfPresent(Int.self, forKey: .fixture_id) {
+                self.fixture_id = fixture_id
+            } else {
+                self.fixture_id = -999
+            }
+        
+            if var status =  try values.decodeIfPresent(String.self, forKey: .status) {
+                self.status = status
+            } else {
+                self.status = "NS"
+            }
+            
+        
            if var goalsAwayTeam =  try values.decodeIfPresent(Int.self, forKey: .goalsAwayTeam) {
                self.goalsAwayTeam = goalsAwayTeam
            } else {

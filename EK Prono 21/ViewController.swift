@@ -18,23 +18,26 @@ public var PronosB = [[Pronostiek]]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 64
+public let temp_voortgang = 265
 //Gespeeld in simulatie => Verdwijnt
 
-public let ga:Int = 64
+public let ga:Int = 51
 //Number of matches
 
-public let sr:Int = 48
-//Match index number 2nd round
+public let fr:Int = 262
+//Match index start tournament
 
-public let qf:Int = 56
-//start quarter finals
+public let sr:Int = 298
+//Match index number 2nd round (262 + 36)
 
-public let sf:Int = 60
-//start semi finals
+public let qf:Int = 306
+//start quarter finals (262 + 44)
 
-public let f:Int = 62
-//start finals
+public let sf:Int = 310
+//start semi finals (262 + 48)
+
+public let f:Int = 312
+//start finals (262 + 20)
 
 var scores = [Scores]()
 // Users and their scores
@@ -86,6 +89,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         if PronosA.count > 0 {
             
+            // Only load prediction once
             if dummy2 == 0 {
                 
                 realpronos()
@@ -94,7 +98,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             }
             
             //Set true for testing
-            livebar = true
+            //livebar = true
             
             //Add main view
             let mview = mainview(livebar: livebar, size: b1)
@@ -152,7 +156,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 ]
 
                 //403
-                let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/1?timezone=Europe%2FLondon")! as URL,
+                let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/403?timezone=Europe%2FLondon")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
                 request.httpMethod = "GET"
@@ -170,96 +174,94 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                         
                 do {
                             
-                        let start = 0
-                        let end = 63
-
+                        let start = 262
+                        let end = 312
+                        
+                        // The API will only show new entries for second roud when games are fully known. Initially it only goes to 297 (36 first round games)
+                    
                         let niveau1 = try decoder.decode(api1.self, from: data!)
-                        //print(niveau1)
+                        print("Counterrrr")
+                        print(niveau1.api.fixtures.count)
                         
                         for n in start...end {
                             
-                            if n < temp_voortgang {
-                            //Zal verdwijnen
-                            
-                            
-                            //print(niveau1.api.fixtures[n].fixture_id)
                             let newFixture = Pronostiek(context: self.context)
-                            newFixture.fixture_ID = Int32(niveau1.api.fixtures[n].fixture_id)
-                            newFixture.round = niveau1.api.fixtures[n].round
                             
-                                //if n == 2 || n == 3 {
-                                if n == 2 {
-                                    
-                                    newFixture.home_Goals = Int16.random(in: 0..<4)
-                                    newFixture.away_Goals = Int16.random(in: 0..<4)
-                                    newFixture.status = "Live Test"
-                                    
+                            if n < niveau1.api.fixtures.count {
+                            
+                                newFixture.fixture_ID = Int32(niveau1.api.fixtures[n].fixture_id)
+                                newFixture.round = niveau1.api.fixtures[n].round
+                                
+                                //For testing games are simulated
+                                if n < temp_voortgang {
+                                
+                                    newFixture.home_Goals = Int16.random(in: 0..<3)
+                                    newFixture.away_Goals = Int16.random(in: 0..<3)
+                                
                                 } else {
-                                    
+                                
                                     newFixture.home_Goals = Int16(niveau1.api.fixtures[n].goalsHomeTeam)
                                     newFixture.away_Goals = Int16(niveau1.api.fixtures[n].goalsAwayTeam)
-                                    newFixture.status = niveau1.api.fixtures[n].status
-                                }
-                        
-                            
-                            if n >= sr && niveau1.api.fixtures[n].statusShort == "PEN" {
-                                
-                                
-                                print("penalties: " + String(n) + " /// " + niveau1.api.fixtures[n].score.penalty)
-                                
-                                if self.penalties(pscore: niveau1.api.fixtures[n].score.penalty) {
-
-                                    newFixture.home_Goals = newFixture.home_Goals + 1
-
-                                } else {
-
-                                    newFixture.away_Goals = newFixture.away_Goals + 1
-
-                                }
-                                
-                            }
-                            
-                            newFixture.home_Team = niveau1.api.fixtures[n].homeTeam.team_name
-                            newFixture.away_Team = niveau1.api.fixtures[n].awayTeam.team_name
-                            newFixture.fulltime = niveau1.api.fixtures[n].score.fulltime
-                            //newFixture.status = niveau1.api.fixtures[n].status
-                            
-                            if newFixture.status == "Live Test" {
                                     
-                                self.livebar = true
+                                }
                                 
-                                let lgame = Livegames(index: n, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
+                                newFixture.status = niveau1.api.fixtures[n].statusShort
                                 
-                                livegames.append(lgame)
                                 
-                                print("*******")
-                                print(lgame.team1)
-                                print(lgame.team2)
-                                print(lgame.goals1)
-                                print(lgame.goals2)
+                                //If penalties, we do not allow equal FT scores, so we add 1 goal to team that qualifies
+                                if n >= sr && newFixture.status == "PEN" {
+                                    
+                                    
+                                    print("penalties: " + String(n) + " /// " + niveau1.api.fixtures[n].score.penalty)
+                                    
+                                    if self.penalties(pscore: niveau1.api.fixtures[n].score.penalty) {
+
+                                        newFixture.home_Goals = newFixture.home_Goals + 1
+
+                                    } else {
+
+                                        newFixture.away_Goals = newFixture.away_Goals + 1
+
+                                    }
+                                    
+                                }
+                                
+                                newFixture.home_Team = niveau1.api.fixtures[n].homeTeam.team_name
+                                newFixture.away_Team = niveau1.api.fixtures[n].awayTeam.team_name
+                                newFixture.fulltime = niveau1.api.fixtures[n].score.fulltime
+                                
+                                //Enable Livebar if game is ongoing
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H"{
                                         
+                                    self.livebar = true
+                                    
+                                    let lgame = Livegames(index: n, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
+                                    
+                                    livegames.append(lgame)
+                                    
+                                    print("*******")
+                                    print(lgame.team1)
+                                    print(lgame.team2)
+                                    print(lgame.goals1)
+                                    print(lgame.goals2)
+                                            
+                                }
+                            
+                            } else {
+                                
+                                newFixture.fixture_ID = -999
+                                newFixture.round = "-"
+                                newFixture.home_Goals = -999
+                                newFixture.away_Goals = -999
+                                newFixture.status = "NS"
+                                newFixture.home_Team = "-"
+                                newFixture.away_Team = "-"
+                                newFixture.fulltime = "-"
+                                                                
                             }
                                 
                             PronosA.append(newFixture)
                             //try self.context.savePronos2()
-                            
-                            } else {
-                            // Zal verdwijnen
-                                
-                                //print(niveau1.api.fixtures[n].fixture_id)
-                                let newFixture = Pronostiek(context: self.context)
-                                newFixture.fixture_ID = Int32(niveau1.api.fixtures[n].fixture_id)
-                                newFixture.round = niveau1.api.fixtures[n].round
-                                newFixture.home_Goals = -999
-                                newFixture.away_Goals = -999
-                                
-                                newFixture.home_Team = "-"
-                                newFixture.away_Team = "-"
-                                newFixture.fulltime = "-"
-                                newFixture.status = "NS"
-                                PronosA.append(newFixture)
-                                
-                            }
                 
 
                         }
@@ -592,16 +594,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func calculator (speler: [Pronostiek]) {
         
-        let tellerA:Int = 48
+        let tellerA:Int = 36
         // Index start of round best of 16
         
-        let tellerQ:Int = 56
+        let tellerQ:Int = 44
         // Index start of round quarter finals
 
-        let tellerS:Int = 60
+        let tellerS:Int = 48
         // Index start of round semi finals
    
-        let tellerF:Int = 62
+        let tellerF:Int = 50
         // Index start of round final
         
         for j in 0...ga-1 {
@@ -651,7 +653,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             } else if j == ga-1 {
                 
                 //Final
-                punten = punten + calc_ext(round: 6,game: j, speler: speler, start: tellerF+1, end: ga-1)
+                punten = punten + calc_ext(round: 6,game: j, speler: speler, start: tellerF, end: ga-1)
                
             }
             
