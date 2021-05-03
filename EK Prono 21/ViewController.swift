@@ -177,7 +177,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                         let start = 262
                         let end = 312
                         
-                        // The API will only show new entries for second roud when games are fully known. Initially it only goes to 297 (36 first round games)
+                        // The API will only show new entries for second round when games are fully known. Initially it only goes to 297 (36 first round games)
                     
                         let niveau1 = try decoder.decode(api1.self, from: data!)
                         print("Counterrrr")
@@ -250,7 +250,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             } else {
                                 
                                 newFixture.fixture_ID = -999
-                                newFixture.round = "-"
+                                
+                                if n < qf {
+                                    newFixture.round = "Round of 16"
+                                } else if n < sf {
+                                    newFixture.round = "Quarter Finals"
+                                } else if n < f {
+                                    newFixture.round = "Semi Finals"
+                                } else {
+                                    newFixture.round = "Final"
+                                }
+
                                 newFixture.home_Goals = -999
                                 newFixture.away_Goals = -999
                                 newFixture.status = "NS"

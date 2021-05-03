@@ -39,9 +39,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 
                 var dummy:Int = 0
                     
-                if PronosA[n].status == "Match Finished" && dummy == 0 {
+                if PronosA[n].status == "FT" && dummy == 0 {
                     fg = fg + 1
-                } else if PronosA[n].status == "First Half" || PronosA[n].status == "Second Half" {
+                } else if PronosA[n].status == "1H" || PronosA[n].status == "2H" || PronosA[n].status == "HT" {
                     fg = n
                     dummy = 1
                 }
