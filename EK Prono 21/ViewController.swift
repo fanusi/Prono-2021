@@ -44,6 +44,9 @@ var scores = [Scores]()
 
 var livegames = [Livegames]()
 
+public var livedummy: Bool = false
+// Test livebar
+
 class ViewController: UIViewController, UIScrollViewDelegate {
     
     //var PronosB = [[Pronostiek]]()
@@ -51,9 +54,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     let pr:Int = 43
     //Number of players
-    
-    var livebar: Bool = false
-    // Test livebar
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -101,11 +101,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             //livebar = true
             
             //Add main view
-            let mview = mainview(livebar: livebar, size: b1)
+            let mview = mainview(livebar: livedummy, size: b1)
             view.addSubview(mview)
             
             //Add livebar only when game is ongoing
-            if livebar {
+            if livedummy {
                 let lbar = livebar(size: b1)
                 view.addSubview(lbar)
             }
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         } else {
 
             //Add main view
-            let mview = mainview(livebar: livebar, size: b1)
+            let mview = mainview(livebar: livedummy, size: b1)
             view.addSubview(mview)
             
             let br = mview.bounds.width
@@ -231,11 +231,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.fulltime = niveau1.api.fixtures[n].score.fulltime
                                 
                                 //Enable Livebar if game is ongoing
-                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H"{
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 262 {
                                         
-                                    self.livebar = true
+                                    livedummy = true
                                     
-                                    let lgame = Livegames(index: n, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
+                                    let lgame = Livegames(index: n-start, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
                                     
                                     livegames.append(lgame)
                                     
@@ -303,9 +303,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let br = view1.bounds.width
         let ho = view1.bounds.height
         
+        var decal:CGFloat = 0.0
+        
+        if livedummy {
+            decal = 0.65
+        } else {
+            decal = 0.75
+        }
+        
         let label0 = UILabel(frame: CGRect(x: br * 0.05, y: ho * 0, width: br * 0.10, height: ho * 0.05))
         let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0, width: br * 0.40, height: ho * 0.05))
-        let label2 = UILabel(frame: CGRect(x: br * 0.65, y: ho * 0, width: br * 0.20, height: ho * 0.05))
+        let label2 = UILabel(frame: CGRect(x: br * decal, y: ho * 0, width: br * 0.20, height: ho * 0.05))
         let label3 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0, width: br * 0.12, height: ho * 0.05))
   
         label0.textAlignment = NSTextAlignment.center
@@ -334,8 +342,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         label3.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
         label3.textColor = .black
-        view1.addSubview(label3)
         
+        if livedummy {
+            view1.addSubview(label3)
+        }
         
         for i in 0...pr-1 {
             
@@ -343,7 +353,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.40, height: ho * 0.05))
             
-            let label2 = UILabel(frame: CGRect(x: br * 0.65, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.20, height: ho * 0.05))
+            let label2 = UILabel(frame: CGRect(x: br * decal, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.20, height: ho * 0.05))
             
             let label3 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.12, height: ho * 0.05))
             
@@ -918,9 +928,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         livebar.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * size * 0.7)
         livebar.backgroundColor = .black
         
-        let updateimg = UIImage(systemName: "arrow.triangle.2.circlepath.circle")
+        //let updateimg = UIImage(systemName: "arrow.triangle.2.circlepath.circle")
+        let updateimg = UIImage(named: "Record")
         let updatebtn = UIButton(type: .custom)
-        updatebtn.frame = CGRect(x: livebar.frame.width * 0.80, y: livebar.frame.height * 0.4, width: livebar.frame.width * 0.15, height: livebar.frame.height * 0.30)
+        
+        let w1: CGFloat = livebar.frame.width * 0.08
+        let h1: CGFloat = min(w1, livebar.frame.height * 0.90)
+        
+        updatebtn.frame = CGRect(x: livebar.frame.width * 0.85, y: (livebar.frame.height - h1) * 0.5, width: w1, height: h1)
 
         updatebtn.setImage(updateimg, for: UIControl.State.normal)
         updatebtn.tintColor = .white
