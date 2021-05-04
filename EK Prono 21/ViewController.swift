@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     //var PronosB = [[Pronostiek]]()
     // PronosB contains guesses of all players
     
-    let pr:Int = 43
+    let pr:Int = 15
     //Number of players
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -724,7 +724,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "WK 18", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
