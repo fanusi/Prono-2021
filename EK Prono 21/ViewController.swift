@@ -18,7 +18,7 @@ public var PronosB = [[Pronostiek]]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 265
+public let temp_voortgang = 282
 //Gespeeld in simulatie => Verdwijnt
 
 public let ga:Int = 51
@@ -71,7 +71,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         if dummy == 0 {
             
             //Only parse on app loading
-            fixtureParsing()
+            //fixtureParsing()
+            fixtureParsing_Temp()
             
         }
         
@@ -143,9 +144,150 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    func fixtureParsing () {
+    func fixtureParsing_Temp () {
                 
                 //Populate PronosA from FootballAPI
+            
+                PronosA.removeAll()
+                livegames.removeAll()
+        
+                let realtest = Realtest()
+        
+                let hteams:[String] = realtest.0
+                let ateams:[String] = realtest.1
+                let hgoals:[Int] = realtest.2
+                let agoals:[Int] = realtest.3
+            
+                let headers = [
+                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
+                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                ]
+
+                //403
+                let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/403?timezone=Europe%2FLondon")! as URL,
+                                                    cachePolicy: .useProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+                request.httpMethod = "GET"
+                request.allHTTPHeaderFields = headers
+
+                let session = URLSession.shared
+            
+                let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                    
+                    
+                if error == nil && data != nil {
+                    
+                        
+                let decoder = JSONDecoder()
+                        
+                do {
+                            
+                        let start = 262
+                        let end = 312
+                        
+                        // The API will only show new entries for second round when games are fully known. Initially it only goes to 297 (36 first round games)
+                    
+                        let niveau1 = try decoder.decode(api1.self, from: data!)
+                        print("Counterrrr")
+                        print(niveau1.api.fixtures.count)
+                        
+                        for n in start...end {
+                            
+                            let newFixture = Pronostiek(context: self.context)
+                            
+                            if n < niveau1.api.fixtures.count {
+                            
+                                newFixture.fixture_ID = Int32(niveau1.api.fixtures[n].fixture_id)
+                                newFixture.round = niveau1.api.fixtures[n].round
+                                
+                                //For testing games are simulated
+                                if n < temp_voortgang {
+                                
+                                    newFixture.home_Goals = Int16(hgoals[n-start])
+                                    newFixture.away_Goals = Int16(agoals[n-start])
+                                    newFixture.status = "FT"
+                                    newFixture.fulltime = String(newFixture.home_Goals) + "-" + String(newFixture.away_Goals)
+                                
+                                } else {
+                                
+                                    newFixture.home_Goals = -999
+                                    newFixture.away_Goals = -999
+                                    newFixture.status = "NS"
+                                    newFixture.fulltime = "-"
+                                    
+                                }
+                                
+                                newFixture.home_Team = hteams[n-start+1]
+                                newFixture.away_Team = ateams[n-start+1]
+                                
+                                if newFixture.home_Team == "FYR Macedonia" {
+                                    newFixture.home_Team = "N Macedonia"
+                                } else if newFixture.away_Team == "FYR Macedonia"{
+                                    newFixture.away_Team = "N Macedonia"
+                                }
+                                
+                                //Enable Livebar if game is ongoing
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 281 {
+                                        
+                                    livedummy = true
+                                    
+                                    let lgame = Livegames(index: n-start, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
+                                    
+                                    livegames.append(lgame)
+                                    
+                                    print("*******")
+                                    print(lgame.team1)
+                                    print(lgame.team2)
+                                    print(lgame.goals1)
+                                    print(lgame.goals2)
+                                            
+                                }
+                            
+                            } else {
+                                
+                                newFixture.fixture_ID = -999
+                                
+                                if n < qf {
+                                    newFixture.round = "Round of 16"
+                                } else if n < sf {
+                                    newFixture.round = "Quarter Finals"
+                                } else if n < f {
+                                    newFixture.round = "Semi Finals"
+                                } else {
+                                    newFixture.round = "Final"
+                                }
+
+                                newFixture.home_Goals = -999
+                                newFixture.away_Goals = -999
+                                newFixture.status = "NS"
+                                newFixture.home_Team = "-"
+                                newFixture.away_Team = "-"
+                                newFixture.fulltime = "-"
+                                                                
+                            }
+                                
+                            PronosA.append(newFixture)
+                            //try self.context.savePronos2()
+                
+
+                        }
+                    
+                            
+                    } catch {
+                        
+                        debugPrint(error)
+                    }
+                        
+                }
+                                
+                })
+                    
+                dataTask.resume()
+
+        }
+    func fixtureParsing () {
+                
+                //Just for testing via Excel
             
                 PronosA.removeAll()
                 livegames.removeAll()
@@ -806,49 +948,61 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func testpronos () {
+    func Realtest () -> ([String], [String], [Int], [Int]) {
         
-        //Populate PronosB with random data
+        //Populate PronosB with Excel data
             
-        PronosB.removeAll()
         
-            let t:Int = 20
-            // Create t+1 test pronos
+        var homeTeams: [String] = []
+        var awayTeams: [String] = []
+        var homeGoals: [Int] = []
+        var awayGoals: [Int] = []
         
-            let g:Int = 20
-            // Number of games
+        
+        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode - simul", ofType: "xlsx") else {
+
+            fatalError("Error n1")
+        }
+
+        guard let file = XLSXFile(filepath: filepath) else {
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        }
+
+        for wbk in try! file.parseWorkbooks() {
+            for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
+            if let worksheetName = name {
+              print("This worksheet has a name: \(worksheetName)")
+            }
+
+            let worksheet = try! file.parseWorksheet(at: path)
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
             
-            for i in 0...t {
-                
-                // Loop players
-                
-                let newArrayFixtures = [Pronostiek(context: self.context)]
-                PronosB.append(newArrayFixtures)
-                
-                PronosB[i][0].user = "User " + String(i+1)
-                PronosB[i][0].fixture_ID = PronosA[0].fixture_ID
-                PronosB[i][0].round = PronosA[0].round
-                PronosB[i][0].home_Goals = Int16.random(in: 0..<4)
-                PronosB[i][0].away_Goals = Int16.random(in: 0..<4)
-                PronosB[i][0].home_Team = PronosA[0].home_Team
-                PronosB[i][0].away_Team = PronosA[0].away_Team
-                
-                for n in 1...g {
+                homeTeams = columnCStrings
+    
+            }
+            
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                awayTeams = columnDStrings
+    
+            }
+    
+                for i in 0...ga-1 {
                     
-                    // Loop games
-                    let newFixture = Pronostiek(context: self.context)
-                    newFixture.user = "User " + String(i+1)
-                    newFixture.fixture_ID = PronosA[n].fixture_ID
-                    newFixture.round = PronosA[n].round
-                    newFixture.home_Goals = Int16.random(in: 0..<4)
-                    newFixture.away_Goals = Int16.random(in: 0..<4)
-                    newFixture.home_Team = PronosA[n].home_Team
-                    newFixture.away_Team = PronosA[n].away_Team
-                    PronosB[i].append(newFixture)
+                    homeGoals.append(Int((worksheet.data?.rows[i+1].cells[4].value)!)!)
+                    awayGoals.append(Int((worksheet.data?.rows[i+1].cells[5].value)!)!)
                     
                 }
-                
-            }
+            
+          }
+        }
+        
+        return (homeTeams, awayTeams, homeGoals, awayGoals)
         
     }
     
