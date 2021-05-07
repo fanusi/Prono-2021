@@ -15,6 +15,8 @@ public var PronosA = [Pronostiek]()
 public var PronosB = [[Pronostiek]]()
 // PronosA contains real scores
 
+public var StandingsA = [Standings]()
+ 
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
@@ -89,7 +91,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         //Add upper bar
         upperbar(text: "Ranking", size: b1)
         
-        if PronosA.count > 0 {
+        if PronosA.count > 0 && StandingsA.count > 0 {
             
             // Only load prediction once
             if dummy2 == 0 {
@@ -437,6 +439,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 
                 //Populate standings from FootballAPI
         
+                StandingsA.removeAll()
+        
                 let headers = [
                     "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
                     "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
@@ -472,19 +476,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             
                             for j in 0...ploegen-1 {
                                 
-                                print(niveau2.api.standings[i][j].rank)
-                                print(niveau2.api.standings[i][j].teamName)
-                                print(niveau2.api.standings[i][j].all.matchsPlayed)
+                                let newStanding = Standings(group: i+1, rank: niveau2.api.standings[i][j].rank, team: niveau2.api.standings[i][j].teamName, gamesPlayed: niveau2.api.standings[i][j].all.matchsPlayed)
+                                
+                                StandingsA.append(newStanding)
+                                
                                 
                             }
 
                         }
                     
+                        //Populate Third place group (six teams from six groups), which we call Group 7
                         for j in 0...5 {
                         
-                        print(niveau2.api.standings[6][j].rank)
-                        print(niveau2.api.standings[6][j].teamName)
-                        print(niveau2.api.standings[6][j].all.matchsPlayed)
+                            
+                            let newStanding = Standings(group: poules+1, rank: niveau2.api.standings[poules][j].rank, team: niveau2.api.standings[poules][j].teamName, gamesPlayed: niveau2.api.standings[poules][j].all.matchsPlayed)
+                            
+                            StandingsA.append(newStanding)
+                                
                             
                         }
                     
@@ -499,6 +507,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 })
                     
                 dataTask.resume()
+            
 
         }
     
