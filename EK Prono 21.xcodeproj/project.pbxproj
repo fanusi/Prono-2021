@@ -27,6 +27,7 @@
 		AE13B8E4263584CF00606478 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8E3263584CF00606478 /* UIScrollView+.swift */; };
 		AE13B8E9263584E800606478 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13B8E8263584E800606478 /* UIView+.swift */; };
 		AE619A712643FEDD0007F305 /* EK 2021 xcode - simul.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE619A702643FEDD0007F305 /* EK 2021 xcode - simul.xlsx */; };
+		AE65233E2645352200A9B3E7 /* StandingsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65233D2645352200A9B3E7 /* StandingsJSON.swift */; };
 		AEA460F126418B77007BCD54 /* EK 2021 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AEA460F026418B77007BCD54 /* EK 2021 xcode.xlsx */; };
 		C6706A4376466DC6784E340B /* Pods_EK_Prono_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB92D518562E12607903877 /* Pods_EK_Prono_21.framework */; };
 		FCE48E1C8826BE0216B76F4F /* Pods_EK_Prono_21_EK_Prono_21UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878F92E6A42073064646BE6D /* Pods_EK_Prono_21_EK_Prono_21UITests.framework */; };
@@ -80,6 +81,7 @@
 		AE13B8E3263584CF00606478 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AE13B8E8263584E800606478 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		AE619A702643FEDD0007F305 /* EK 2021 xcode - simul.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EK 2021 xcode - simul.xlsx"; path = "EK Prono 21/EK 2021 xcode - simul.xlsx"; sourceTree = SOURCE_ROOT; };
+		AE65233D2645352200A9B3E7 /* StandingsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsJSON.swift; sourceTree = "<group>"; };
 		AEA460F026418B77007BCD54 /* EK 2021 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EK 2021 xcode.xlsx"; path = "EK Prono 21/EK 2021 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
 		B6A73D6A54D2C5E09C1C9DE3 /* Pods-EK Prono 21Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21Tests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21Tests/Pods-EK Prono 21Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72AFFFCB3FDAC3CF1BF085 /* Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				AE13B88226356F8700606478 /* Info.plist */,
 				AE13B87A26356F8600606478 /* EK_Prono_21.xcdatamodeld */,
 				AE13B8C82635820B00606478 /* EuroJSON.swift */,
+				AE65233D2645352200A9B3E7 /* StandingsJSON.swift */,
 				AE13B8CD2635822C00606478 /* Scores.swift */,
 				AE13B8D22635824A00606478 /* Livegames.swift */,
 			);
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE65233E2645352200A9B3E7 /* StandingsJSON.swift in Sources */,
 				AE13B8E9263584E800606478 /* UIView+.swift in Sources */,
 				AE13B8D32635824A00606478 /* Livegames.swift in Sources */,
 				AE13B8B92635783700606478 /* ViewController2.swift in Sources */,

@@ -72,6 +72,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             //Only parse on app loading
             //fixtureParsing()
+            standingParsing()
             fixtureParsing_Temp()
             
         }
@@ -227,7 +228,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 }
                                 
                                 //Enable Livebar if game is ongoing
-                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 281 {
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 280 {
                                         
                                     livedummy = true
                                     
@@ -416,6 +417,75 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             //try self.context.savePronos2()
                 
 
+                        }
+                    
+                            
+                    } catch {
+                        
+                        debugPrint(error)
+                    }
+                        
+                }
+                                
+                })
+                    
+                dataTask.resume()
+
+        }
+    
+    func standingParsing () {
+                
+                //Populate standings from FootballAPI
+        
+                let headers = [
+                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
+                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                ]
+
+                let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v2/leagueTable/403")! as URL,
+                                                        cachePolicy: .useProtocolCachePolicy,
+                                                    timeoutInterval: 10.0)
+                request.httpMethod = "GET"
+                request.allHTTPHeaderFields = headers
+
+                let session = URLSession.shared
+            
+                let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                    
+                    
+                if error == nil && data != nil {
+                    
+                        
+                let decoder = JSONDecoder()
+                        
+                do {
+                    
+                        let poules: Int = 6
+                        let ploegen: Int = 4
+                    
+                        let niveau2 = try decoder.decode(api2.self, from: data!)
+                        
+                        for i in 0...poules-1 {
+                            
+                            print("")
+                            print("Poule " + String(i+1))
+                            
+                            for j in 0...ploegen-1 {
+                                
+                                print(niveau2.api.standings[i][j].rank)
+                                print(niveau2.api.standings[i][j].teamName)
+                                print(niveau2.api.standings[i][j].all.matchsPlayed)
+                                
+                            }
+
+                        }
+                    
+                        for j in 0...5 {
+                        
+                        print(niveau2.api.standings[6][j].rank)
+                        print(niveau2.api.standings[6][j].teamName)
+                        print(niveau2.api.standings[6][j].all.matchsPlayed)
+                            
                         }
                     
                             
@@ -1144,6 +1214,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         label.text = text
         label.font = UIFont.boldSystemFont(ofSize: fontsize)
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
         view1.addSubview(label)
         
     }
@@ -1174,7 +1245,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @objc func btnclicked() {
         
         dummy = 0
-        fixtureParsing()
+        fixtureParsing_Temp()
+        //fixtureParsing()
         initiate()
 
     }
