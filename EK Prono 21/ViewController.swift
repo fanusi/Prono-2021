@@ -57,6 +57,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let pr:Int = 15
     //Number of players
     
+    var groupsPlayed = [Int]()
+    //Matrix returning total games played from group 1 to 6
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
@@ -440,6 +443,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 //Populate standings from FootballAPI
         
                 StandingsA.removeAll()
+                groupsPlayed.removeAll()
         
                 let headers = [
                     "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
@@ -471,17 +475,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                         
                         for i in 0...poules-1 {
                             
-                            print("")
-                            print("Poule " + String(i+1))
+                            
+                            var m1: Int = 0
+                            
                             
                             for j in 0...ploegen-1 {
                                 
                                 let newStanding = Standings(group: i+1, rank: niveau2.api.standings[i][j].rank, team: niveau2.api.standings[i][j].teamName, gamesPlayed: niveau2.api.standings[i][j].all.matchsPlayed)
                                 
                                 StandingsA.append(newStanding)
-                                
-                                
+                            
+                                m1 = m1 + newStanding.gamesPlayed
+                                //temp
+                                //m1 = m1 + Int.random(in: 0..<4)
+                                    
                             }
+                            
+                            self.groupsPlayed.append(m1)
 
                         }
                     
@@ -1256,6 +1266,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         dummy = 0
         fixtureParsing_Temp()
         //fixtureParsing()
+        standingParsing()
         initiate()
 
     }
