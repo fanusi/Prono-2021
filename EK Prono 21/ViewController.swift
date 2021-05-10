@@ -826,7 +826,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
         }
         
-        if speler[0].user == "Jacob" {
+        if speler[0].user == "Player 2" {
         
             print(hometeam_real + " - " + awayteam_real + "    " + String(homegoals_real) + "-" + String(awaygoals_real))
             
@@ -843,7 +843,165 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    func kwalificatieR (start: Int, end: Int) -> [String] {
+    
+        //Create a string matrix with all qualifiers
+        
+        var qualifiers = [String]()
+        
+        for i in start...end {
+            
+            if PronosA[i].status != "NS" {
+                
+                if PronosA[i].home_Goals > PronosA[i].away_Goals {
+                    
+                    let kf: String = PronosA[i].home_Team!
+                    qualifiers.append(kf)
+                    
+                } else if PronosA[i].home_Goals < PronosA[i].away_Goals {
+                    
+                    let kf: String = PronosA[i].away_Team!
+                    qualifiers.append(kf)
+                
+                } else {
+  
+                    let kf: String = "Unknown"
+                    qualifiers.append(kf)
+                    
+                }
+                
+            } else {
+                
+                let kf: String = "Unknown"
+                qualifiers.append(kf)
+                
+            }
+            
+        }
+        
+        return qualifiers
+        
+        
+    }
+    
+    
+    func calc_ext2 (round: Int, game: Int, speler: [Pronostiek], start: Int, end: Int) -> Int {
+            
+        
+        var punten: Int = 0
+        var dcheck: Int = 0
+        
+        var homegoals_real: Int = 0
+        var awaygoals_real: Int = 0
+        var hometeam_real: String = ""
+        var awayteam_real: String = ""
+        
+        let homegoals_prono: Int = Int(speler[game].home_Goals)
+        let awaygoals_prono: Int = Int(speler[game].away_Goals)
+        let hometeam_prono: String = speler[game].home_Team!
+        let awayteam_prono: String = speler[game].away_Team!
+        
+        let kwalnextround: [String] = kwalificatieR(start: start, end: end)
+        //Populate matrix with qualifying teams next round
+        
+        var qualProno: String = ""
+        //Qualifying team in prediction
+        
+        if homegoals_prono > awaygoals_prono {
+            
+            qualProno = hometeam_prono
+            
+        } else if homegoals_prono < awaygoals_prono {
+            
+            qualProno = awayteam_prono
+            
+        }
+        
+        //Check if game has been exactly predicted
+        for i in start...end {
+        
+            dcheck = 0
+            
+            if hometeam_prono == PronosA[i].home_Team {
+                
+                //punten = punten + round
+                homegoals_real = Int(PronosA[i].home_Goals)
+                hometeam_real = PronosA[i].home_Team!
+                dcheck = 1
+                
+            } else if hometeam_prono == PronosA[i].away_Team {
+                
+                //punten = punten + round
+                homegoals_real = Int(PronosA[i].away_Goals)
+                hometeam_real = PronosA[i].away_Team!
+                dcheck = 1
+            
+            }
+            
+            if awayteam_prono == PronosA[i].away_Team {
+                
+                //punten = punten + round
+                awaygoals_real = Int(PronosA[i].away_Goals)
+                awayteam_real = PronosA[i].away_Team!
+                dcheck = dcheck + 1
+                
+            } else if awayteam_prono == PronosA[i].home_Team {
+                
+                //punten = punten + round
+                awaygoals_real = Int(PronosA[i].home_Goals)
+                awayteam_real = PronosA[i].home_Team!
+                dcheck = dcheck + 1
+            
+            }
+            
+            if dcheck == 2 {
+                
+                punten = punten + calc_simple(hg_p: homegoals_prono, ag_p: awaygoals_prono, hg_r: homegoals_real, ag_r: awaygoals_real)
+                
+            }
+            
+        }
+        
+        // Give points for qualifying next round
+        for i in start...end {
+            
+            if qualProno == kwalnextround[i] {
+                punten = punten + round
+            }
+            
+        }
+        
+        return punten
+        
+    }
+    
+    func calc_ext3 (round: Int, game: Int, speler: [Pronostiek], start: Int, end: Int) -> Int {
+    
+    // Third Group
+        
+        
+        var punten: Int = 0
+        
+        let homegoals_real: Int = Int(PronosA[game].home_Goals)
+        let awaygoals_real: Int = Int(PronosA[game].away_Goals)
+        let hometeam_real: String = PronosA[game].home_Team!
+        let awayteam_real: String = PronosA[game].away_Team!
+        
+        let homegoals_prono: Int = Int(speler[game].home_Goals)
+        let awaygoals_prono: Int = Int(speler[game].away_Goals)
+        let hometeam_prono: String = speler[game].home_Team!
+        let awayteam_prono: String = speler[game].away_Team!
+                
+        punten = punten + calc_simple(hg_p: homegoals_prono, ag_p: awaygoals_prono, hg_r: homegoals_real, ag_r: awaygoals_real)
+                
+        return punten
+        
+    }
+    
     func calculator (speler: [Pronostiek]) {
+        
+        let teller3:Int = 24
+        // Index start of third group game
         
         let tellerA:Int = 36
         // Index start of round best of 16
@@ -867,12 +1025,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let homegoals_prono: Int = Int(speler[j].home_Goals)
             let awaygoals_prono: Int = Int(speler[j].away_Goals)
     
-            if j < tellerA {
+            if j < teller3 {
                 
-                //First round
+                //First 2 group matches
                 punten = punten + calc_simple(hg_p: homegoals_prono, ag_p: awaygoals_prono, hg_r: homegoals_real, ag_r: awaygoals_real)
                 
-                if speler[0].user == "Jacob" {
+                if speler[0].user == "Player 2" {
                 
                     print(PronosA[j].home_Team! + " - " + PronosA[j].away_Team!)
                     print(String(homegoals_real) + "-" + String(awaygoals_real))
@@ -885,31 +1043,34 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     print("//")
                     
                 }
-    
+
+            } else if j < tellerA {
+                
+                //Third group game
+                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: teller3, end: tellerA-1)
+                
             } else if j < tellerQ {
                 
                 //Best of 16
-                punten = punten + calc_ext(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerA, end: tellerQ-1)
                 
             } else if j < tellerS {
                 
                 //Quarter finals
-                punten = punten + calc_ext(round: 4,game: j, speler: speler, start: tellerQ, end: tellerS-1)
+                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerQ, end: tellerS-1)
                
             } else if j < tellerF {
                 
                 //semi finals
-                punten = punten + calc_ext(round: 5,game: j, speler: speler, start: tellerS, end: tellerF-1)
+                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerS, end: tellerF-1)
                 
             } else if j == ga-1 {
                 
                 //Final
-                punten = punten + calc_ext(round: 6,game: j, speler: speler, start: tellerF, end: ga-1)
+                punten = punten + calc_ext2(round: 10,game: j, speler: speler, start: tellerF, end: ga-1)
                
             }
             
-            
-                
             //toewijzen van punten
             let stat = Statistiek(context: context)
             stat.punten = Int16(punten)
