@@ -20,7 +20,7 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 282
+public let temp_voortgang = 262 + 30
 //Gespeeld in simulatie => Verdwijnt
 
 public let ga:Int = 51
@@ -208,75 +208,68 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             
                             let newFixture = Pronostiek(context: self.context)
                             
-                            if n < niveau1.api.fixtures.count {
+                            if n < sr {
+                                newFixture.round = "First round"
+                            } else if n < qf {
+                                newFixture.round = "Round of 16"
+                            } else if n < sf {
+                                newFixture.round = "Quarter Finals"
+                            } else if n < f {
+                                newFixture.round = "Semi Finals"
+                            } else {
+                                newFixture.round = "Final"
+                            }
                             
-                                newFixture.fixture_ID = Int32(niveau1.api.fixtures[n].fixture_id)
-                                newFixture.round = niveau1.api.fixtures[n].round
+                            newFixture.fixture_ID = Int32(n)
+                            
+                            if n < temp_voortgang {
                                 
-                                //For testing games are simulated
-                                if n < temp_voortgang {
-                                
-                                    newFixture.home_Goals = Int16(hgoals[n-start])
-                                    newFixture.away_Goals = Int16(agoals[n-start])
-                                    newFixture.status = "FT"
-                                    newFixture.fulltime = String(newFixture.home_Goals) + "-" + String(newFixture.away_Goals)
-                                
-                                } else {
-                                
-                                    newFixture.home_Goals = -999
-                                    newFixture.away_Goals = -999
-                                    newFixture.status = "NS"
-                                    newFixture.fulltime = "-"
-                                    
-                                }
-                                
+                                newFixture.home_Goals = Int16(hgoals[n-start])
+                                newFixture.away_Goals = Int16(agoals[n-start])
+                                newFixture.status = "FT"
+                                newFixture.fulltime = String(newFixture.home_Goals) + "-" + String(newFixture.away_Goals)
                                 newFixture.home_Team = hteams[n-start+1]
                                 newFixture.away_Team = ateams[n-start+1]
-                                
-                                if newFixture.home_Team == "FYR Macedonia" {
-                                    newFixture.home_Team = "N Macedonia"
-                                } else if newFixture.away_Team == "FYR Macedonia"{
-                                    newFixture.away_Team = "N Macedonia"
-                                }
-                                
-                                //Enable Livebar if game is ongoing
-                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 280 {
-                                        
-                                    livedummy = true
-                                    
-                                    let lgame = Livegames(index: n-start, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
-                                    
-                                    livegames.append(lgame)
-                                    
-                                    print("*******")
-                                    print(lgame.team1)
-                                    print(lgame.team2)
-                                    print(lgame.goals1)
-                                    print(lgame.goals2)
-                                            
-                                }
                             
                             } else {
                                 
-                                newFixture.fixture_ID = -999
-                                
-                                if n < qf {
-                                    newFixture.round = "Round of 16"
-                                } else if n < sf {
-                                    newFixture.round = "Quarter Finals"
-                                } else if n < f {
-                                    newFixture.round = "Semi Finals"
-                                } else {
-                                    newFixture.round = "Final"
-                                }
-
                                 newFixture.home_Goals = -999
                                 newFixture.away_Goals = -999
                                 newFixture.status = "NS"
-                                newFixture.home_Team = "-"
-                                newFixture.away_Team = "-"
                                 newFixture.fulltime = "-"
-                                                                
+                                
+                                if n < sr {
+                                    newFixture.home_Team = hteams[n-start+1]
+                                    newFixture.away_Team = ateams[n-start+1]
+                                } else {
+                                    newFixture.home_Team = "-"
+                                    newFixture.away_Team = "-"
+                                }
+                                
+                            }
+
+                                
+                            if newFixture.home_Team == "FYR Macedonia" {
+                                newFixture.home_Team = "N Macedonia"
+                            } else if newFixture.away_Team == "FYR Macedonia"{
+                                newFixture.away_Team = "N Macedonia"
+                            }
+                                
+                            //Enable Livebar if game is ongoing
+                            if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-1 {
+                                    
+                                livedummy = true
+                                
+                                let lgame = Livegames(index: n-start, team1: newFixture.home_Team!, goals1: Int(newFixture.home_Goals), team2: newFixture.away_Team!, goals2: Int(newFixture.away_Goals))
+                                
+                                livegames.append(lgame)
+                                
+                                print("*******")
+                                print(lgame.team1)
+                                print(lgame.team2)
+                                print(lgame.goals1)
+                                print(lgame.goals2)
+                                        
                             }
                                 
                             PronosA.append(newFixture)
@@ -387,7 +380,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.fulltime = niveau1.api.fixtures[n].score.fulltime
                                 
                                 //Enable Livebar if game is ongoing
-                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == 262 {
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-1 {
                                         
                                     livedummy = true
                                     
@@ -1016,8 +1009,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func calc_ext3 (round: Int, game: Int, speler: [Pronostiek], start: Int, end: Int) -> Int {
     
-    // Third Group
-    // Last third group games for all groups
+        // Third Group
+        // Last third group games for all groups
         let aa: Int = 25
         let bb: Int = 29
         let cc: Int = 27
@@ -1028,7 +1021,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
         
         var punten: Int = 0
-    
+        
         let homegoals_real: Int = Int(PronosA[game].home_Goals)
         let awaygoals_real: Int = Int(PronosA[game].away_Goals)
         let hometeam_real: String = PronosA[game].home_Team!
@@ -1040,8 +1033,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let awayteam_prono: String = speler[game].away_Team!
         
         
-         
-        if lastgames.contains(game) {
+        if lastgames.contains(game) && PronosA[game].status != "NS" {
         // Last group game, then check for qualifiers
             
             let group: [String] = [PronosA[game].home_Team!, PronosA[game].away_Team!, PronosA[game-1].home_Team!, PronosA[game-1].away_Team!]
@@ -1120,7 +1112,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             } else if j < tellerA {
                 
                 //Third group game
-                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: teller3, end: tellerA-1)
+                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
                 
             } else if j < tellerQ {
                 
