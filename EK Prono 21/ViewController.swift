@@ -20,7 +20,9 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 262 + 30
+public let temp_voortgang = 262 + 1
+
+
 //Gespeeld in simulatie => Verdwijnt
 
 public let ga:Int = 51
@@ -63,6 +65,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var qual16 = [String]()
     // best 2 from each group that qualify for round of 16
     
+    var qual16_3 = [String]()
+    // best third from each group that qualify for round of 16
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
@@ -101,7 +106,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             //Populate best two teams from each group
             qual16.removeAll()
-            qual16 = qualbest2()
+            qual16_3.removeAll()
+            
+            //temp uncomment qual16 = qualbest2() voor tornooi
+            qual16 = ["Italy", "Switzerland", "Denmark", "Belgium", "Austria", "Netherlands", "England", "Czech Republic", "Sweden", "Poland", "France", "Hungary"]
+            
+            qual16_3 = ["Finland", "Wales", "Spain", "N Macedonia"]
+            
+            //qual16 = qualbest2()
+            //qual16_3 = qualbest3()
+            print("Beste derde")
+            print(qual16_3)
             
             //Only load prediction once
             if dummy2 == 0 {
@@ -484,6 +499,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 
                                 let newStanding = Standings(group: i+1, rank: niveau2.api.standings[i][j].rank, team: niveau2.api.standings[i][j].teamName, gamesPlayed: niveau2.api.standings[i][j].all.matchsPlayed)
                                 
+                                if newStanding.team == "FYR Macedonia" {
+                                    newStanding.team = "N Macedonia"
+                                }
+                                
                                 StandingsA.append(newStanding)
                             
                                 m1 = m1 + newStanding.gamesPlayed
@@ -501,6 +520,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                         
                             
                             let newStanding = Standings(group: poules+1, rank: niveau2.api.standings[poules][j].rank, team: niveau2.api.standings[poules][j].teamName, gamesPlayed: niveau2.api.standings[poules][j].all.matchsPlayed)
+                            
+                            if newStanding.team == "FYR Macedonia" {
+                                newStanding.team = "N Macedonia"
+                            }
                             
                             StandingsA.append(newStanding)
                                 
@@ -530,6 +553,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         for i in 0...StandingsA.count-1 {
             
             if StandingsA[i].rank == 1 || StandingsA[i].rank == 2 {
+                
+                let qteam: String = StandingsA[i].team
+                qbest.append(qteam)
+                
+            }
+            
+        }
+        
+        return qbest
+        
+        
+    }
+    
+    func qualbest3 () -> [String] {
+    // Populates best thirds
+        
+        var qbest: [String] = []
+        
+        for i in 0...StandingsA.count-1 {
+            
+            if StandingsA[i].group == 7 {
                 
                 let qteam: String = StandingsA[i].team
                 qbest.append(qteam)
@@ -1051,6 +1095,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     punten = punten + round
                     
                 }
+                
+            }
+            
+            if game == ff {
+            //Last first round game best four thirds qualification is allocated
+                
+                for i in start...end {
+                    
+                    if qual16_3.contains(speler[i].home_Team!) {
+                        
+                        punten = punten + round
+                        
+                    }
+
+                    if qual16_3.contains(speler[i].away_Team!) {
+                        
+                        punten = punten + round
+                        
+                    }
+                    
+                }
+                
                 
             }
             

@@ -89,20 +89,25 @@ class ViewController3: UIViewController {
                 var array = [UIView]()
                 array.removeAll()
                 
-                let n = temp_voortgang-fr
+                let n = gespeeld()
                 
-                for _ in 0 ..< n {
-                    array.append(UIView())
-                }
+                if n > 0 {
                 
-                for i in 0...n-1 {
+                    for _ in 0 ..< n {
+                        array.append(UIView())
+                    }
                     
-                    createviews(index1: i, actualview: array[i], superviewer: uview, numberviews: n)
-                
-                }
-                
-                uview.contentSize = CGSize(width: br, height: CGFloat(n + 1) * ho / CGFloat(size1))
+                    for i in 0...n-1 {
+                        
+                        createviews(index1: i, actualview: array[i], superviewer: uview, numberviews: n)
+                    
+                    }
+                    
+                    uview.contentSize = CGSize(width: br, height: CGFloat(n + 1) * ho / CGFloat(size1))
             
+                }
+                    
+                    
             } else {
                 
                 let br = view.bounds.width
@@ -126,6 +131,24 @@ class ViewController3: UIViewController {
             }
         
         }
+    
+    func gespeeld () -> Int {
+        
+        var teller: Int = 0
+        
+        for i in 0...PronosA.count-1 {
+            
+            if PronosA[i].status != "NS" {
+                
+                teller = teller + 1
+                
+            }
+            
+        }
+        
+        return teller
+        
+    }
         
         func createviews (index1: Int, actualview: UIView, superviewer: UIScrollView, numberviews: Int) {
                 
