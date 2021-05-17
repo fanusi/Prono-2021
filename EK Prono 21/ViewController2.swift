@@ -17,7 +17,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     let u1:Int = 7
     //Number of subviews on screen
     
-    let ind: [Int] = [sr, qf, sf, f, ga]
+    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga - fr]
     //Index second round, quarter finals, semi finals, finals and last game
     
     var fg:Int = 0
@@ -305,6 +305,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 //If teams are known, then we project the actual game, else the initial user predictions
                 
                     Astrings = secondround(game: choice1, user: gebr, rteam1: team1, rteam2: team2)
+                    
+                    print("TESTTTTT")
+                    print(Astrings)
                     
                 } else {
                     

@@ -20,7 +20,7 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 262 + 1
+public let temp_voortgang = 262 + 39
 
 
 //Gespeeld in simulatie => Verdwijnt
@@ -58,6 +58,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     let pr:Int = 15
     //Number of players
+    
+    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga - fr]
+    //Index second round, quarter finals, semi finals, finals and last game
     
     var groupsPlayed = [Int]()
     //Matrix returning total games played from group 1 to 6
@@ -280,6 +283,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 livegames.append(lgame)
                                 
                                 print("*******")
+                                print(lgame.index)
                                 print(lgame.team1)
                                 print(lgame.team2)
                                 print(lgame.goals1)
@@ -692,21 +696,57 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
             if livegames.count > 0 {
                 
-                let temp1: String = String(PronosB[scores[i].index][livegames[0].index].home_Goals)
-                let temp2: String = String(PronosB[scores[i].index][livegames[0].index].away_Goals)
-                let temp3: String = temp1 + "-" + temp2
-                label3.text = temp3
+                if livegames[0].index < ind[0] {
+                // 1st round games
                 
-                let temp4: String = String(PronosA[livegames[0].index].home_Goals)
-                let temp5: String = String(PronosA[livegames[0].index].away_Goals)
-                let temp6: String = temp4 + "-" + temp5
-                
-                if temp3 == temp6 {
-                    label3.textColor = .green
-                    label3.backgroundColor = .black
+                    let temp1: String = String(PronosB[scores[i].index][livegames[0].index].home_Goals)
+                    let temp2: String = String(PronosB[scores[i].index][livegames[0].index].away_Goals)
+                    let temp3: String = temp1 + "-" + temp2
+                    label3.text = temp3
+                    
+                    let temp4: String = String(PronosA[livegames[0].index].home_Goals)
+                    let temp5: String = String(PronosA[livegames[0].index].away_Goals)
+                    let temp6: String = temp4 + "-" + temp5
+                    
+                    if temp3 == temp6 {
+                        label3.textColor = .green
+                        label3.backgroundColor = .black
+                    } else {
+                        label3.textColor = .black
+                    }
+                    
+                    
                 } else {
-                    label3.textColor = .black
+                    
+                    let VC2 = ViewController2()
+                    let QualText:[String] = VC2.secondround(game: livegames[0].index, user: scores[i].index, rteam1: PronosA[livegames[0].index].home_Team!, rteam2: PronosA[livegames[0].index].away_Team!)
+    
+                    if QualText[0] == livegames[0].team1 {
+                    // Perfect guess
+                        
+                        let temp3 = QualText[1] + "-" + QualText[2]
+                        label3.text = temp3
+                        
+                        let temp4: String = String(PronosA[livegames[0].index].home_Goals)
+                        let temp5: String = String(PronosA[livegames[0].index].away_Goals)
+                        let temp6: String = temp4 + "-" + temp5
+                        
+                        if temp3 == temp6 {
+                            label3.textColor = .green
+                            label3.backgroundColor = .black
+                        } else {
+                            label3.textColor = .black
+                        }
+                        
+                    } else {
+                        
+                        label3.text = transferString(Astrings: QualText)
+                        
+                    }
+
+                    
                 }
+            
                 
             } else {
                 
@@ -720,6 +760,36 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             view1.addSubview(label3)
             
         }
+        
+    }
+    
+    func transferString(Astrings: [String]) -> String {
+        
+        var Svalue:String = ""
+        
+        if Astrings[0] != "" {
+            
+            Svalue = "Q1"
+            
+            if Astrings[3] != "" {
+             
+                Svalue = "X2"
+            
+            }
+                
+        } else if Astrings[3] != "" {
+            
+            Svalue = "Q2"
+            
+            if Astrings[0] != "" {
+             
+                Svalue = "X2"
+            
+            }
+                
+        }
+        
+        return Svalue
         
     }
     
