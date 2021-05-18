@@ -60,6 +60,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let pr:Int = 15
     //Number of players
     
+    var lastgame1: Int = 0
+    
     let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga - fr]
     //Index second round, quarter finals, semi finals, finals and last game
     
@@ -111,6 +113,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             //Populate best two teams from each group
             qual16.removeAll()
             qual16_3.removeAll()
+            lastgame1 = lastgame()
             
             //temp uncomment qual16 = qualbest2() voor tornooi
             qual16 = ["Italy", "Switzerland", "Denmark", "Belgium", "Austria", "Netherlands", "England", "Czech Republic", "Sweden", "Poland", "France", "Hungary"]
@@ -173,6 +176,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             }
             
         }
+        
+    }
+    
+    func lastgame() -> Int {
+        
+        var fg:Int = 0
+        
+        for n in 0...PronosA.count-1 {
+            
+            var dummy:Int = 0
+            
+            if PronosA[n].status == "FT" && dummy == 0 {
+                fg = fg + 1
+            } else if PronosA[n].status == "1H" || PronosA[n].status == "2H" || PronosA[n].status == "HT" {
+                fg = n
+                dummy = 1
+            }
+            
+        }
+        
+        
+        return fg-1
         
     }
     
@@ -275,7 +300,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             }
                                 
                             //Enable Livebar if game is ongoing
-                            if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-1 {
+                            if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-1+1000 {
                                     
                                 livedummy = true
                                 
@@ -617,11 +642,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         var decal:CGFloat = 0.0
         
-        if livedummy {
-            decal = 0.65
-        } else {
-            decal = 0.75
-        }
+//        if livedummy {
+//            decal = 0.65
+//        } else {
+//            decal = 0.75
+//        }
+        
+        decal = 0.65
         
         let label0 = UILabel(frame: CGRect(x: br * 0.05, y: ho * 0, width: br * 0.10, height: ho * 0.05))
         let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0, width: br * 0.40, height: ho * 0.05))
@@ -650,14 +677,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         view1.addSubview(label2)
         
         label3.textAlignment = NSTextAlignment.center
-        label3.text = "Prono"
+        
+        if livedummy {
+            label3.text = "Prono"
+        } else {
+            label3.text = "Last"
+        }
+        
         label3.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
         label3.textColor = .black
         
-        if livedummy {
-            view1.addSubview(label3)
-        }
+        view1.addSubview(label3)
         
         for i in 0...pr-1 {
             
@@ -765,7 +796,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 
             } else {
                 
-                label3.text = ""
+                if lastgame1 == -1 {
+                    label3.text = "-"
+                } else {
+                    label3.text = laatstepunten(speler: PronosB[scores[i].index], game: lastgame1)
+                }
                 
             }
 
