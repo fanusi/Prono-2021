@@ -398,6 +398,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             label.textAlignment = NSTextAlignment.left
             label.text = Svalue
             label.font = UIFont.boldSystemFont(ofSize: 14.0)
+            label.adjustsFontSizeToFitWidth = true
             superviewer.addSubview(label)
 
             

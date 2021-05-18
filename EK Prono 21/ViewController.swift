@@ -20,7 +20,7 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 262 + 39
+public let temp_voortgang = 262 + 35
 
 
 //Gespeeld in simulatie => Verdwijnt
@@ -45,6 +45,7 @@ public let f:Int = 312
 
 var scores = [Scores]()
 // Users and their scores
+
 
 var livegames = [Livegames]()
 
@@ -635,7 +636,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         view1.addSubview(label0)
         
         label1.textAlignment = NSTextAlignment.left
-        label1.text = "Player"
+        label1.text = "Naam"
         label1.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
         label1.textColor = .black
@@ -708,15 +709,20 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     let temp5: String = String(PronosA[livegames[0].index].away_Goals)
                     let temp6: String = temp4 + "-" + temp5
                     
+                    let burn1:Bool = burn(hgp: Int(temp1)!, agp: Int(temp2)!, hgr: Int(temp4)!, agr: Int(temp5)!)
+                    
                     if temp3 == temp6 {
                         label3.textColor = .green
                         label3.backgroundColor = .black
+                    } else if burn1 {
+                        label3.textColor = .gray
                     } else {
                         label3.textColor = .black
                     }
                     
                     
                 } else {
+                // 2nd round
                     
                     let VC2 = ViewController2()
                     let QualText:[String] = VC2.secondround(game: livegames[0].index, user: scores[i].index, rteam1: PronosA[livegames[0].index].home_Team!, rteam2: PronosA[livegames[0].index].away_Team!)
@@ -735,12 +741,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             label3.textColor = .green
                             label3.backgroundColor = .black
                         } else {
-                            label3.textColor = .black
+                            label3.textColor = .white
+                            label3.backgroundColor = .darkGray
+                            label3.font = UIFont.boldSystemFont(ofSize: 15)
                         }
                         
                     } else {
                         
                         label3.text = transferString(Astrings: QualText)
+                        
+                        if label3.text == "X2" {
+                            
+                            label3.backgroundColor = .black
+                            label3.textColor = .white
+                            
+                        }
                         
                     }
 
@@ -754,12 +769,46 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 
             }
 
-            label3.font = UIFont.systemFont(ofSize: 15.0)
+            //label3.font = UIFont.systemFont(ofSize: 15.0)
             //label.backgroundColor = .red
             
             view1.addSubview(label3)
             
         }
+        
+    }
+    
+    func burn(hgp: Int, agp: Int, hgr: Int, agr: Int) -> Bool {
+        
+        var dummy:Bool = false
+        
+        if hgr > agr {
+            
+            if hgp < agp || hgp == agp {
+                
+                dummy = true
+                
+            }
+            
+        } else if hgr < agr {
+            
+            if hgp > agp || hgp == agp {
+                
+                dummy = true
+                
+            }
+            
+        } else if hgr == agr {
+            
+            if hgp > agp || hgp < agp {
+                
+                dummy = true
+                
+            }
+            
+        }
+        
+        return dummy
         
     }
     
