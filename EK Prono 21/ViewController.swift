@@ -26,7 +26,7 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 262 + 35
+public let temp_voortgang = 262 + 35 + Int.random(in: 0..<10)
 
 
 //Gespeeld in simulatie => Verdwijnt
@@ -653,20 +653,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let br = view1.bounds.width
         let ho = view1.bounds.height
         
-        var decal:CGFloat = 0.0
+        // decal1 voor stand, decal2 voor prono/last
+        var decal1:CGFloat = 0.0
+        var decal2:CGFloat = 0.0
+        var decal3:CGFloat = 0.0
         
-//        if livedummy {
-//            decal = 0.65
-//        } else {
-//            decal = 0.75
-//        }
-        
-        decal = 0.65
+        if livegames.count == 2 {
+        //Two games ongoing
+            decal1 = 0.50
+            decal2 = 0.70
+            decal3 = 0.28
+        } else {
+        //No games or just 1
+           decal1 = 0.65
+           decal2 = 0.85
+           decal3 = 0.40
+        }
         
         let label0 = UILabel(frame: CGRect(x: br * 0.05, y: ho * 0, width: br * 0.10, height: ho * 0.05))
-        let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0, width: br * 0.40, height: ho * 0.05))
-        let label2 = UILabel(frame: CGRect(x: br * decal, y: ho * 0, width: br * 0.20, height: ho * 0.05))
-        let label3 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0, width: br * 0.12, height: ho * 0.05))
+        let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0, width: br * decal3, height: ho * 0.05))
+        let label2 = UILabel(frame: CGRect(x: br * decal1, y: ho * 0, width: br * 0.20, height: ho * 0.05))
+        let label3 = UILabel(frame: CGRect(x: br * decal2, y: ho * 0, width: br * 0.12, height: ho * 0.05))
+        let label4 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0, width: br * 0.12, height: ho * 0.05))
   
         label0.textAlignment = NSTextAlignment.center
         label0.text = "Rank"
@@ -691,28 +699,40 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         label3.textAlignment = NSTextAlignment.center
         
-        if livedummy {
-            label3.text = "Prono"
-        } else {
+        if livegames.count == 0 {
             label3.text = "Last"
+        } else if livegames.count == 1  {
+            label3.text = "Prono"
+        } else if livegames.count == 2 {
+            label3.text = "P1"
         }
         
         label3.font = UIFont.boldSystemFont(ofSize: 15.0)
-        //label.backgroundColor = .red
         label3.textColor = .black
         
         view1.addSubview(label3)
+        
+        label4.textAlignment = NSTextAlignment.center
+        label4.text = "P2"
+        label4.font = UIFont.boldSystemFont(ofSize: 15.0)
+        label4.textColor = .black
+        
+        if livegames.count == 2 {
+            view1.addSubview(label4)
+        }
+        
         
         for i in 0...pr-1 {
             
             let label0 = UILabel(frame: CGRect(x: br * 0.05, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.10, height: ho * 0.05))
             
-            let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.40, height: ho * 0.05))
+            let label1 = UILabel(frame: CGRect(x: br * 0.20, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * decal3, height: ho * 0.05))
             
-            let label2 = UILabel(frame: CGRect(x: br * decal, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.20, height: ho * 0.05))
+            let label2 = UILabel(frame: CGRect(x: br * decal1, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.20, height: ho * 0.05))
             
-            let label3 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.12, height: ho * 0.05))
+            let label3 = UILabel(frame: CGRect(x: br * decal2, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.12, height: ho * 0.05))
             
+            let label4 = UILabel(frame: CGRect(x: br * 0.85, y: ho * 0.05 + ho * 0.05 * CGFloat(i), width: br * 0.12, height: ho * 0.05))
             
             label0.textAlignment = NSTextAlignment.center
             //label1.text = PronosB[i][0].user
@@ -738,8 +758,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             view1.addSubview(label2)
             
             label3.textAlignment = NSTextAlignment.center
+            label4.textAlignment = NSTextAlignment.center
 
-            if livegames.count > 0 {
+            if livegames.count == 1 {
                 
                 if livegames[0].index < ind[0] {
                 // 1st round games
@@ -807,6 +828,125 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 }
             
                 
+            } else if livegames.count == 2 {
+                
+                if livegames[0].index < ind[0] {
+                // 1st round games
+                
+                    let temp1: String = String(PronosB[scores[i].index][livegames[0].index].home_Goals)
+                    let temp2: String = String(PronosB[scores[i].index][livegames[0].index].away_Goals)
+                    let temp3: String = temp1 + "-" + temp2
+                    label3.text = temp3
+                    
+                    let temp7: String = String(PronosB[scores[i].index][livegames[1].index].home_Goals)
+                    let temp8: String = String(PronosB[scores[i].index][livegames[1].index].away_Goals)
+                    let temp9: String = temp7 + "-" + temp8
+                    label4.text = temp9
+                    
+                    let temp4: String = String(PronosA[livegames[0].index].home_Goals)
+                    let temp5: String = String(PronosA[livegames[0].index].away_Goals)
+                    let temp6: String = temp4 + "-" + temp5
+                    
+                    let temp10: String = String(PronosA[livegames[1].index].home_Goals)
+                    let temp11: String = String(PronosA[livegames[1].index].away_Goals)
+                    let temp12: String = temp10 + "-" + temp11
+                    
+                    let burn1:Bool = burn(hgp: Int(temp1)!, agp: Int(temp2)!, hgr: Int(temp4)!, agr: Int(temp5)!)
+                    
+                    let burn2:Bool = burn(hgp: Int(temp7)!, agp: Int(temp8)!, hgr: Int(temp10)!, agr: Int(temp11)!)
+                    
+                    if temp3 == temp6 {
+                        label3.textColor = .green
+                        label3.backgroundColor = .black
+                    } else if burn1 {
+                        label3.textColor = .gray
+                    } else {
+                        label3.textColor = .black
+                    }
+                    
+                    if temp9 == temp12 {
+                        label4.textColor = .green
+                        label4.backgroundColor = .black
+                    } else if burn2 {
+                        label4.textColor = .gray
+                    } else {
+                        label4.textColor = .black
+                    }
+                    
+                } else {
+                // 2nd round
+                    
+                    let VC2 = ViewController2()
+                    let QualText:[String] = VC2.secondround(game: livegames[0].index, user: scores[i].index, rteam1: PronosA[livegames[0].index].home_Team!, rteam2: PronosA[livegames[0].index].away_Team!)
+                    
+                    let QualText2:[String] = VC2.secondround(game: livegames[1].index, user: scores[i].index, rteam1: PronosA[livegames[1].index].home_Team!, rteam2: PronosA[livegames[1].index].away_Team!)
+    
+                    if QualText[0] == livegames[0].team1 {
+                    // Perfect guess
+                        
+                        let temp3 = QualText[1] + "-" + QualText[2]
+                        label3.text = temp3
+                        
+                        let temp4: String = String(PronosA[livegames[0].index].home_Goals)
+                        let temp5: String = String(PronosA[livegames[0].index].away_Goals)
+                        let temp6: String = temp4 + "-" + temp5
+                        
+                        if temp3 == temp6 {
+                            label3.textColor = .green
+                            label3.backgroundColor = .black
+                        } else {
+                            label3.textColor = .white
+                            label3.backgroundColor = .darkGray
+                            label3.font = UIFont.boldSystemFont(ofSize: 15)
+                        }
+                        
+                    } else {
+                        
+                        label3.text = transferString(Astrings: QualText)
+                        
+                        if label3.text == "X2" {
+                            
+                            label3.backgroundColor = .black
+                            label3.textColor = .white
+                            
+                        }
+                        
+                    }
+
+                    if QualText2[0] == livegames[1].team1 {
+                    // Perfect guess
+                        
+                        let temp9 = QualText2[1] + "-" + QualText2[2]
+                        label4.text = temp9
+                        
+                        let temp10: String = String(PronosA[livegames[1].index].home_Goals)
+                        let temp11: String = String(PronosA[livegames[1].index].away_Goals)
+                        let temp12: String = temp10 + "-" + temp11
+                        
+                        if temp9 == temp12 {
+                            label4.textColor = .green
+                            label4.backgroundColor = .black
+                        } else {
+                            label4.textColor = .white
+                            label4.backgroundColor = .darkGray
+                            label4.font = UIFont.boldSystemFont(ofSize: 15)
+                        }
+                        
+                    } else {
+                        
+                        label4.text = transferString(Astrings: QualText2)
+                        
+                        if label4.text == "X2" {
+                            
+                            label4.backgroundColor = .black
+                            label4.textColor = .white
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
             } else {
                 
                 if lastgame1 == -1 {
@@ -821,6 +961,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             //label.backgroundColor = .red
             
             view1.addSubview(label3)
+            
+            if livegames.count == 2 {
+                
+                view1.addSubview(label4)
+                
+            }
             
         }
         
