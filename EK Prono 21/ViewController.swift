@@ -11,6 +11,12 @@ import CoreXLSX
 public var dummy = Int()
 public var dummy2 = Int()
 
+//Test dummies to be deleted in real version
+public var dummy3 = Int()
+public var d1: Int = 0
+public var d2: Int = 0
+
+
 public var PronosA = [Pronostiek]()
 public var PronosB = [[Pronostiek]]()
 // PronosA contains real scores
@@ -79,6 +85,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Test dummies to be deleted in real version
+        if dummy3 == 0 {
+            d1 = Int.random(in: 0..<3)
+            d2 = Int.random(in: 0..<3)
+            dummy3 = 1
+        }
+
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
         rightSwipe.direction = UISwipeGestureRecognizer.Direction.right
         self.view.addGestureRecognizer(rightSwipe)
@@ -202,7 +215,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func fixtureParsing_Temp () {
-                
+        
                 //Populate PronosA from FootballAPI
             
                 PronosA.removeAll()
@@ -300,7 +313,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                             }
                                 
                             //Enable Livebar if game is ongoing
-                            if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-1+1000 {
+                            if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || n == temp_voortgang-2+1000*d1 || n == temp_voortgang-1+1000*d2 {
                                     
                                 livedummy = true
                                 
