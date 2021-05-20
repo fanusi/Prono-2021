@@ -26,8 +26,8 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-public let temp_voortgang = 262 + 35 + Int.random(in: 0..<10)
-
+//public let temp_voortgang = 262 + 35 + Int.random(in: 0..<10)
+public let temp_voortgang = 262 + 10
 
 //Gespeeld in simulatie => Verdwijnt
 
@@ -154,10 +154,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             view.addSubview(mview)
             
             //Add livebar only when game is ongoing
-            if livedummy {
-                let lbar = livebar(size: b1)
-                view.addSubview(lbar)
-            }
+//            if livedummy {
+            let lbar = livebar(size: b1)
+            view.addSubview(lbar)
+//            }
             
             //Add scrollview to mainview
             let sview = scroller()
@@ -1755,23 +1755,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         let mainview = UIView()
         
-        if livebar {
+//        if livebar {
             
-            let lbview = UIView()
-            lbview.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * size * 0.7)
-            lbview.backgroundColor = .black
-            view.addSubview(lbview)
-            
-            mainview.frame = CGRect(x: 0, y: view.frame.height * size * 1.7, width: view.frame.width, height: view.frame.height * (1 - size * 1.7))
+        let lbview = UIView()
+        lbview.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * size * 0.7)
+        //lbview.backgroundColor = .black
+        view.addSubview(lbview)
+        
+        mainview.frame = CGRect(x: 0, y: view.frame.height * size * 1.7, width: view.frame.width, height: view.frame.height * (1 - size * 1.7))
             
 
-            
-            
-        } else {
-            
-            mainview.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * (1 - size))
-            
-        }
+//
+//
+//        } else {
+//
+//            mainview.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * (1 - size))
+//
+//        }
         
         //view.addSubview(mainview)
     
@@ -1784,7 +1784,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let livebar = UIView()
 
         livebar.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * size * 0.7)
-        livebar.backgroundColor = .black
+        
+        if livegames.count > 0 {
+            livebar.backgroundColor = .black
+        } else {
+            livebar.backgroundColor = .systemGray5
+        }
         
         //let updateimg = UIImage(systemName: "arrow.triangle.2.circlepath.circle")
         let updateimg = UIImage(named: "Record")
@@ -1806,19 +1811,38 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         if livegames.count == 1 {
         // A single game is being played
             
-            newlabel(view1: livebar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: livegames[0].team1 + " - " + livegames[0].team2, fontsize: 16.0, center: false)
-            newlabel(view1: livebar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(livegames[0].goals1) + " - " + String(livegames[0].goals2), fontsize: 16.0, center: true)
+            newlabel(view1: livebar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: livegames[0].team1 + " - " + livegames[0].team2, fontsize: 16.0, center: false, textwhite: true)
+            newlabel(view1: livebar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(livegames[0].goals1) + " - " + String(livegames[0].goals2), fontsize: 16.0, center: true, textwhite: true)
             
             
         } else if livegames.count == 2 {
         // Two games are being played
             
-            newlabel(view1: livebar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: livegames[0].team1 + " - " + livegames[0].team2, fontsize: 14.0, center: false)
-            newlabel(view1: livebar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(livegames[0].goals1) + " - " + String(livegames[0].goals2), fontsize: 14.0, center: true)
+            newlabel(view1: livebar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: livegames[0].team1 + " - " + livegames[0].team2, fontsize: 14.0, center: false, textwhite: true)
+            newlabel(view1: livebar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(livegames[0].goals1) + " - " + String(livegames[0].goals2), fontsize: 14.0, center: true, textwhite: true)
             
-            newlabel(view1: livebar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: livegames[1].team1 + " - " + livegames[1].team2, fontsize: 14.0, center: false)
-            newlabel(view1: livebar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(livegames[1].goals1) + " - " + String(livegames[1].goals2), fontsize: 14.0, center: true)
+            newlabel(view1: livebar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: livegames[1].team1 + " - " + livegames[1].team2, fontsize: 14.0, center: false, textwhite: true)
+            newlabel(view1: livebar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(livegames[1].goals1) + " - " + String(livegames[1].goals2), fontsize: 14.0, center: true, textwhite: true)
             
+        } else {
+        // No games ongoing
+                        
+            let thirdGames: [Int] = [24, 26, 28, 30, 33, 34]
+            
+            if thirdGames.contains(lastgame1+1) {
+            // If next game is third Group gfame then there will be two games played at same time
+                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 14.0, center: false, textwhite: false)
+                newlabel(view1: livebar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 14.0, center: false, textwhite: false)
+                newlabel(view1: livebar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: PronosA[lastgame1+2].home_Team! + " - " + PronosA[lastgame1+2].away_Team!, fontsize: 14.0, center: false, textwhite: false)
+                
+            } else {
+      
+                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 16.0, center: false, textwhite: false)
+                
+                newlabel(view1: livebar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 16.0, center: false, textwhite: false)
+                
+            }
+        
         }
         
         livebar.addSubview(updatebtn)
@@ -1827,7 +1851,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool) {
+    func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool, textwhite: Bool) {
         
         let label = UILabel(frame: CGRect(x: view1.frame.width * x, y: view1.frame.height * y, width: view1.frame.width * width, height: view1.frame.height * height))
         if center {
@@ -1837,7 +1861,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         label.text = text
         label.font = UIFont.boldSystemFont(ofSize: fontsize)
-        label.textColor = .white
+        if textwhite {
+            label.textColor = .white
+        }
         label.adjustsFontSizeToFitWidth = true
         view1.addSubview(label)
         
