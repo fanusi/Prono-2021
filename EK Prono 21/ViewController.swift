@@ -26,8 +26,8 @@ public var StandingsA = [Standings]()
 public let b1:CGFloat = 0.12
 // Height of upper bar
 
-//public let temp_voortgang = 262 + 35 + Int.random(in: 0..<10)
-public let temp_voortgang = 262 + 10
+public let temp_voortgang = 262 + 10 + Int.random(in: 0..<30)
+//public let temp_voortgang = 262 + 10
 
 //Gespeeld in simulatie => Verdwijnt
 
@@ -178,7 +178,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             label1.textAlignment = NSTextAlignment.left
             label1.font.withSize(18)
             label1.text = "Loading..."
-            label1.textColor = .black
+            //label1.textColor = .black
             mview.addSubview(label1)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -680,21 +680,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         label0.text = "Rank"
         label0.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
-        label0.textColor = .black
+        //label0.textColor = .black
         view1.addSubview(label0)
         
         label1.textAlignment = NSTextAlignment.left
         label1.text = "Naam"
         label1.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
-        label1.textColor = .black
+        //label1.textColor = .black
         view1.addSubview(label1)
                             
         label2.textAlignment = NSTextAlignment.center
         label2.text = "Stand"
         label2.font = UIFont.boldSystemFont(ofSize: 15.0)
         //label.backgroundColor = .red
-        label2.textColor = .black
+        //label2.textColor = .black
         view1.addSubview(label2)
         
         label3.textAlignment = NSTextAlignment.center
@@ -708,14 +708,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         label3.font = UIFont.boldSystemFont(ofSize: 15.0)
-        label3.textColor = .black
+        //label3.textColor = .black
         
         view1.addSubview(label3)
         
         label4.textAlignment = NSTextAlignment.center
         label4.text = "P2"
         label4.font = UIFont.boldSystemFont(ofSize: 15.0)
-        label4.textColor = .black
+        //label4.textColor = .black
         
         if livegames.count == 2 {
             view1.addSubview(label4)
@@ -739,7 +739,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             label0.text = String(i + 1)
             label0.font = UIFont.systemFont(ofSize: 15.0)
             //label.backgroundColor = .red
-            label0.textColor = .black
+            //label0.textColor = .black
             view1.addSubview(label0)
   
             label1.textAlignment = NSTextAlignment.left
@@ -747,14 +747,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             label1.text = scores[i].user
             label1.font = UIFont.systemFont(ofSize: 15.0)
             //label.backgroundColor = .red
-            label1.textColor = .black
+            //label1.textColor = .black
             view1.addSubview(label1)
                                 
             label2.textAlignment = NSTextAlignment.center
             label2.text = String(scores[i].punten)
             label2.font = UIFont.systemFont(ofSize: 15.0)
             //label.backgroundColor = .red
-            label2.textColor = .black
+            //label2.textColor = .black
             view1.addSubview(label2)
             
             label3.textAlignment = NSTextAlignment.center
@@ -782,7 +782,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     } else if burn1 {
                         label3.textColor = .gray
                     } else {
-                        label3.textColor = .black
+                        //label3.textColor = .black
                     }
                     
                     
@@ -861,7 +861,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     } else if burn1 {
                         label3.textColor = .gray
                     } else {
-                        label3.textColor = .black
+                        //label3.textColor = .black
                     }
                     
                     if temp9 == temp12 {
@@ -870,7 +870,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     } else if burn2 {
                         label4.textColor = .gray
                     } else {
-                        label4.textColor = .black
+                        //label4.textColor = .black
                     }
                     
                 } else {
@@ -1785,20 +1785,27 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
         livebar.frame = CGRect(x: 0, y: view.frame.height * size, width: view.frame.width, height: view.frame.height * size * 0.7)
         
+        var updateimg = UIImage(named: "Record")
+        
+        var w1: CGFloat = livebar.frame.width * 0.08
+        var h1: CGFloat = min(w1, livebar.frame.height * 0.90)
+        var x1: CGFloat = livebar.frame.width * 0.85
+        
         if livegames.count > 0 {
             livebar.backgroundColor = .black
         } else {
-            livebar.backgroundColor = .systemGray5
+            livebar.backgroundColor = UIColor.init(red: 0, green: 0, blue: 80/255, alpha: 1)
+            updateimg = UIImage(named: "bluebutton3")
+            h1 = min(w1, livebar.frame.height * 0.98)
+            w1 = livebar.frame.width * 0.08
+            x1 = livebar.frame.width * 0.85
         }
         
         //let updateimg = UIImage(systemName: "arrow.triangle.2.circlepath.circle")
-        let updateimg = UIImage(named: "Record")
+        
         let updatebtn = UIButton(type: .custom)
-        
-        let w1: CGFloat = livebar.frame.width * 0.08
-        let h1: CGFloat = min(w1, livebar.frame.height * 0.90)
-        
-        updatebtn.frame = CGRect(x: livebar.frame.width * 0.85, y: (livebar.frame.height - h1) * 0.5, width: w1, height: h1)
+    
+        updatebtn.frame = CGRect(x: x1, y: (livebar.frame.height - h1) * 0.5, width: w1, height: h1)
 
         updatebtn.setImage(updateimg, for: UIControl.State.normal)
         updatebtn.tintColor = .white
@@ -1831,15 +1838,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             if thirdGames.contains(lastgame1+1) {
             // If next game is third Group gfame then there will be two games played at same time
-                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 14.0, center: false, textwhite: false)
-                newlabel(view1: livebar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 14.0, center: false, textwhite: false)
-                newlabel(view1: livebar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: PronosA[lastgame1+2].home_Team! + " - " + PronosA[lastgame1+2].away_Team!, fontsize: 14.0, center: false, textwhite: false)
+                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: PronosA[lastgame1+2].home_Team! + " - " + PronosA[lastgame1+2].away_Team!, fontsize: 14.0, center: false, textwhite: true)
                 
             } else {
       
-                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 16.0, center: false, textwhite: false)
+                newlabel(view1: livebar, x: 0.02, y: 0.10, width: 0.20, height: 0.3, text: "Next", fontsize: 16.0, center: false, textwhite: true)
                 
-                newlabel(view1: livebar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 16.0, center: false, textwhite: false)
+                newlabel(view1: livebar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 16.0, center: false, textwhite: true)
                 
             }
         
@@ -1863,6 +1870,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         label.font = UIFont.boldSystemFont(ofSize: fontsize)
         if textwhite {
             label.textColor = .white
+        }
+        if text == "Next" {
+            //label.font = UIFont(name: "Arizonia", size: fontsize)
+            label.textColor = .systemGray4
         }
         label.adjustsFontSizeToFitWidth = true
         view1.addSubview(label)

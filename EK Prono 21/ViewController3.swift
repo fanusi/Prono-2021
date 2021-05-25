@@ -116,7 +116,7 @@ class ViewController3: UIViewController {
                 label1.textAlignment = NSTextAlignment.left
                 label1.font.withSize(18)
                 label1.text = "Fetching..."
-                label1.textColor = .black
+                //label1.textColor = .black
                 view.addSubview(label1)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -154,7 +154,7 @@ class ViewController3: UIViewController {
                 
                 superviewer.addSubview(actualview)
             actualview.frame = CGRect(x: 0, y: 0.05 + view.bounds.height / CGFloat(size1) * CGFloat(index1), width: superviewer.bounds.width, height: view.bounds.height / CGFloat(size1))
-                actualview.backgroundColor = .white
+                //actualview.backgroundColor = .white
                 
                 createlabels(type: 1, superviewer: actualview, teller: index1)
                 createlabels(type: 2, superviewer: actualview, teller: index1)

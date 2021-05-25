@@ -245,7 +245,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 superviewer.addSubview(actualview)
                 actualview.frame = CGRect(x: 0, y: 0.0 + superviewer.bounds.height / CGFloat(u1) * CGFloat(index1), width: superviewer.bounds.width, height: superviewer.bounds.height / CGFloat(u1))
 
-                actualview.backgroundColor = .white
+                //actualview.backgroundColor = .white
             
                 actualview.layer.masksToBounds = true
                 actualview.layer.borderColor = UIColor.systemGray.cgColor
