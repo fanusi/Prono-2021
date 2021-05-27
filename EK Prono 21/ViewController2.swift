@@ -306,7 +306,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 
                     Astrings = secondround(game: choice1, user: gebr, rteam1: team1, rteam2: team2)
                     
-                    print("TESTTTTT")
+                    print("TEST")
                     print(Astrings)
                     
                 } else {
