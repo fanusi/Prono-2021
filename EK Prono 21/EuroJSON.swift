@@ -74,7 +74,7 @@ struct fixture: Codable {
            if var round =  try values.decodeIfPresent(String.self, forKey: .round) {
                self.round = round
            } else {
-               self.round = "NA"
+               self.round = ""
            }
         
             if var venue =  try values.decodeIfPresent(String.self, forKey: .venue) {

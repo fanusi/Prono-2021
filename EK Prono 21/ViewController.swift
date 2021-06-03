@@ -117,7 +117,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func initiate() {
         
         removeSV(viewsv: view)
-        
         //Add upper bar
         upperbar(text: "Ranking", size: b1)
         
@@ -469,6 +468,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.away_Team = "-"
                                 newFixture.fulltime = "-"
                                 newFixture.time = ""
+                                newFixture.round = ""
                                                                 
                             }
                                 
@@ -1839,13 +1839,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             if thirdGames.contains(lastgame1+1) {
             // If next game is third Group gfame then there will be two games played at same time
-                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].round!, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: livebar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: livebar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: PronosA[lastgame1+2].home_Team! + " - " + PronosA[lastgame1+2].away_Team!, fontsize: 14.0, center: false, textwhite: true)
                 
             } else {
       
-                newlabel(view1: livebar, x: 0.02, y: 0.10, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 16.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].round!, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 14.0, center: false, textwhite: true)
                 
                 newlabel(view1: livebar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 16.0, center: false, textwhite: true)
                 
