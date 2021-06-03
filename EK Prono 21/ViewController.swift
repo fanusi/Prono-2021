@@ -468,7 +468,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.away_Team = "-"
                                 newFixture.fulltime = "-"
                                 newFixture.time = ""
-                                newFixture.round = ""
                                                                 
                             }
                                 
