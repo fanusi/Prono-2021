@@ -18,6 +18,7 @@ struct fixture: Codable {
     var statusShort: String
     var goalsAwayTeam: Int
     var goalsHomeTeam: Int
+    var event_timestamp: Int
     
     enum CodingKeys: String, CodingKey {
            case venue
@@ -30,6 +31,7 @@ struct fixture: Codable {
            case goalsHomeTeam
            case score
            case statusShort
+           case event_timestamp
        }
        
        // The Initializer function from Decodable
@@ -85,6 +87,12 @@ struct fixture: Codable {
                 self.statusShort = statusShort
             } else {
                 self.statusShort = "NA"
+            }
+        
+            if var event_timestamp =  try values.decodeIfPresent(Int.self, forKey: .event_timestamp) {
+                self.event_timestamp = event_timestamp
+            } else {
+                self.event_timestamp = 0
             }
         
        }

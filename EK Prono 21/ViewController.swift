@@ -402,6 +402,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.away_Goals = Int16(niveau1.api.fixtures[n].goalsAwayTeam)
                                 newFixture.status = niveau1.api.fixtures[n].statusShort
                                 
+                                let timeStamp = Double(niveau1.api.fixtures[n].event_timestamp)
+                                let unixTimeStamp: Double = Double(timeStamp) / 1.0
+                                let exactDate = NSDate.init(timeIntervalSince1970: unixTimeStamp)
+                                let dateFormatt = DateFormatter();
+                                dateFormatt.dateFormat = "dd/MM  h:mm"
+                                newFixture.time = dateFormatt.string(from: exactDate as Date)
                                 
                                 //If penalties, we do not allow equal FT scores, so we add 1 goal to team that qualifies
                                 if n >= sr && newFixture.status == "PEN" {
@@ -462,6 +468,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.home_Team = "-"
                                 newFixture.away_Team = "-"
                                 newFixture.fulltime = "-"
+                                newFixture.time = ""
                                                                 
                             }
                                 
@@ -1832,13 +1839,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             if thirdGames.contains(lastgame1+1) {
             // If next game is third Group gfame then there will be two games played at same time
-                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: "Next", fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.02, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: livebar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: livebar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: PronosA[lastgame1+2].home_Team! + " - " + PronosA[lastgame1+2].away_Team!, fontsize: 14.0, center: false, textwhite: true)
                 
             } else {
       
-                newlabel(view1: livebar, x: 0.02, y: 0.10, width: 0.20, height: 0.3, text: "Next", fontsize: 16.0, center: false, textwhite: true)
+                newlabel(view1: livebar, x: 0.02, y: 0.10, width: 0.20, height: 0.3, text: PronosA[lastgame1+1].time!, fontsize: 16.0, center: false, textwhite: true)
                 
                 newlabel(view1: livebar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: PronosA[lastgame1+1].home_Team! + " - " + PronosA[lastgame1+1].away_Team!, fontsize: 16.0, center: false, textwhite: true)
                 

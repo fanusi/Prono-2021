@@ -9,6 +9,7 @@
         <attribute name="home_Team" optional="YES" attributeType="String"/>
         <attribute name="round" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="user" optional="YES" attributeType="String"/>
         <relationship name="statistiek" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Statistiek" inverseName="pronostiek" inverseEntity="Statistiek"/>
     </entity>
@@ -18,7 +19,7 @@
         <relationship name="pronostiek" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pronostiek" inverseName="statistiek" inverseEntity="Pronostiek"/>
     </entity>
     <elements>
-        <element name="Pronostiek" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Pronostiek" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="Statistiek" positionX="-54" positionY="63" width="128" height="88"/>
     </elements>
 </model>
