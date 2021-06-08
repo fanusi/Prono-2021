@@ -63,7 +63,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     //var PronosB = [[Pronostiek]]()
     // PronosB contains guesses of all players
     
-    let pr:Int = 15
+    let pr:Int = 10
     //Number of players
     
     var lastgame1: Int = 0
@@ -1560,7 +1560,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode1", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
