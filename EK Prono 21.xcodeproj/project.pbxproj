@@ -30,7 +30,7 @@
 		AE65233E2645352200A9B3E7 /* StandingsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65233D2645352200A9B3E7 /* StandingsJSON.swift */; };
 		AE71F7792645DCB4009A4889 /* standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71F7782645DCB4009A4889 /* standings.swift */; };
 		AEA460F126418B77007BCD54 /* EK 2021 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AEA460F026418B77007BCD54 /* EK 2021 xcode.xlsx */; };
-		AECE29BE266FAED400ED5415 /* EK 2021 xcode1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AECE29BD266FAED400ED5415 /* EK 2021 xcode1.xlsx */; };
+		AEBC4BF026710425004E18CD /* EK 2021 xcode1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AEBC4BEF26710425004E18CD /* EK 2021 xcode1.xlsx */; };
 		C6706A4376466DC6784E340B /* Pods_EK_Prono_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB92D518562E12607903877 /* Pods_EK_Prono_21.framework */; };
 		FCE48E1C8826BE0216B76F4F /* Pods_EK_Prono_21_EK_Prono_21UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878F92E6A42073064646BE6D /* Pods_EK_Prono_21_EK_Prono_21UITests.framework */; };
 /* End PBXBuildFile section */
@@ -86,7 +86,7 @@
 		AE65233D2645352200A9B3E7 /* StandingsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsJSON.swift; sourceTree = "<group>"; };
 		AE71F7782645DCB4009A4889 /* standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = standings.swift; sourceTree = "<group>"; };
 		AEA460F026418B77007BCD54 /* EK 2021 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EK 2021 xcode.xlsx"; path = "EK Prono 21/EK 2021 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
-		AECE29BD266FAED400ED5415 /* EK 2021 xcode1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EK 2021 xcode1.xlsx"; sourceTree = "<group>"; };
+		AEBC4BEF26710425004E18CD /* EK 2021 xcode1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EK 2021 xcode1.xlsx"; path = "../EK 2021 xcode1.xlsx"; sourceTree = "<group>"; };
 		B6A73D6A54D2C5E09C1C9DE3 /* Pods-EK Prono 21Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21Tests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21Tests/Pods-EK Prono 21Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72AFFFCB3FDAC3CF1BF085 /* Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21-EK Prono 21UITests/Pods-EK Prono 21-EK Prono 21UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6F2294827498A0B6B9E5425 /* Pods-EK Prono 21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EK Prono 21.debug.xcconfig"; path = "Target Support Files/Pods-EK Prono 21/Pods-EK Prono 21.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			children = (
 				AE13B8DD263583A000606478 /* Support */,
 				AEA460F026418B77007BCD54 /* EK 2021 xcode.xlsx */,
-				AECE29BD266FAED400ED5415 /* EK 2021 xcode1.xlsx */,
+				AEBC4BEF26710425004E18CD /* EK 2021 xcode1.xlsx */,
 				AE619A702643FEDD0007F305 /* EK 2021 xcode - simul.xlsx */,
 				AE13B8B32635722900606478 /* WK 18.xlsx */,
 				AE13B87126356F8600606478 /* AppDelegate.swift */,
@@ -330,7 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE13B88126356F8700606478 /* LaunchScreen.storyboard in Resources */,
-				AECE29BE266FAED400ED5415 /* EK 2021 xcode1.xlsx in Resources */,
+				AEBC4BF026710425004E18CD /* EK 2021 xcode1.xlsx in Resources */,
 				AE13B87E26356F8700606478 /* Assets.xcassets in Resources */,
 				AE13B8B42635722900606478 /* WK 18.xlsx in Resources */,
 				AEA460F126418B77007BCD54 /* EK 2021 xcode.xlsx in Resources */,
