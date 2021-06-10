@@ -202,9 +202,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
             var dummy:Int = 0
             
-            if PronosA[n].status == "FT" && dummy == 0 {
-                fg = fg + 1
-            } else if PronosA[n].status == "1H" || PronosA[n].status == "2H" || PronosA[n].status == "HT" {
+            if PronosA[n].status == "FT" || PronosA[n].status == "AET" || PronosA[n].status == "PEN"  {
+                
+                if dummy == 0 {
+                    
+                    fg = fg + 1
+                    
+                }
+                
+            } else if PronosA[n].status == "1H" || PronosA[n].status == "2H" || PronosA[n].status == "HT" || PronosA[n].status == "ET" || PronosA[n].status == "P" || PronosA[n].status == "BT" {
                 fg = n
                 dummy = 1
             }
@@ -433,7 +439,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                                 newFixture.fulltime = niveau1.api.fixtures[n].score.fulltime
                                 
                                 //Enable Livebar if game is ongoing
-                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" {
+                                if newFixture.status == "1H" || newFixture.status == "HT" || newFixture.status == "2H" || newFixture.status == "ET" || newFixture.status == "P" || newFixture.status == "BT" {
                                         
                                     livedummy = true
                                     
