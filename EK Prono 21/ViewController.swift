@@ -718,7 +718,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             label3.backgroundColor = .systemGray5
             label3.textColor = .systemRed
         } else if livegames.count == 2 {
-            label3.text = PronosA[livegames[1].index].elapsed! + "'"
+            label3.text = PronosA[livegames[0].index].elapsed! + "'"
             label3.textColor = .systemRed
         }
         
