@@ -1074,8 +1074,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func laatstepunten (speler: [Pronostiek], game: Int) -> String {
         
         var str:String
+        let a:Int16 = speler[game].statistiek?.punten ?? 0
+        var b:Int16 = 0
         
-        str = String(speler[game].statistiek?.punten ?? 0)
+        let aa: Int = 25
+        let bb: Int = 29
+        let cc: Int = 27
+        let dd: Int = 31
+        let ee: Int = 33
+        let ff: Int = 35
+        
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
+        
+        if lastgames.contains(game) {
+            b = speler[game-1].statistiek?.punten ?? 0
+        }
+        
+        str = String(a + b)
         
         if str == "0" {
             
