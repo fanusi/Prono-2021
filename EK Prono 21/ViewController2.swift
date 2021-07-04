@@ -17,7 +17,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     let u1:Int = 7
     //Number of subviews on screen
     
-    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga - fr]
+    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]
     //Index second round, quarter finals, semi finals, finals and last game
     
     var fg:Int = 0
@@ -421,11 +421,11 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         var dummy: Int = 0
         var d2: Int = 0
         
-        if round == 3 {
-            
-            d2 = 1
-            
-        }
+//        if round == 3 {
+//
+//            d2 = 1
+//
+//        }
         
         if PronosB[user][i].home_Team! == rteam1 {
             

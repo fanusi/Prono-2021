@@ -68,7 +68,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     var lastgame1: Int = 0
     
-    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga - fr]
+    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]
     //Index second round, quarter finals, semi finals, finals and last game
     
     var groupsPlayed = [Int]()
