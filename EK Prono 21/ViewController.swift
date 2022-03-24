@@ -166,6 +166,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             mview.addSubview(sview)
             sview.edgeTo(view: mview)
             
+            print("OK to hier")
+            
             scoreView(view1: sview)
             
         } else {
@@ -218,7 +220,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         
-        return fg-1
+        return min(fg, ga - 1) - 1
         
     }
     
@@ -363,9 +365,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 PronosA.removeAll()
                 livegames.removeAll()
             
+//                let headers = [
+//                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
+//                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+//                ]
+//
                 let headers = [
-                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
-                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                    "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+                    "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec"
                 ]
 
                 //403
@@ -508,9 +515,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 StandingsA.removeAll()
                 groupsPlayed.removeAll()
         
+//                let headers = [
+//                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
+//                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+//                ]
+        
                 let headers = [
-                    "x-rapidapi-key": "a08ffc63acmshbed8df93dae1449p15e553jsnb3532d9d0c9b",
-                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com"
+                    "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+                    "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec"
                 ]
 
                 let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v2/leagueTable/403")! as URL,
